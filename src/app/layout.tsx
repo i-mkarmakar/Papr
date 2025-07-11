@@ -4,7 +4,6 @@ import { appConfig } from "@/config";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { fontOnest, fontSans } from "@/fonts";
-
 import QueryProvider from "@/providers/queryProvider";
 import { ThemeProvider } from "@/providers/themeProvider";
 import ClerkCustomProvider from "@/providers/clerkProvider";

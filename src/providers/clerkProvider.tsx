@@ -1,9 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-
-
-import { useTheme } from "next-themes";
 import { ClerkProvider } from "@clerk/nextjs";
 
 interface ClerkCustomProviderProps {
@@ -11,13 +8,8 @@ interface ClerkCustomProviderProps {
 }
 
 const ClerkCustomProvider = ({ children }: ClerkCustomProviderProps) => {
-  const { theme } = useTheme();
   return (
-    <ClerkProvider
-      appearance={{
-        baseTheme: theme === "dark" ? dark : undefined,
-      }}
-    >
+    <ClerkProvider>
       {children}
     </ClerkProvider>
   );
