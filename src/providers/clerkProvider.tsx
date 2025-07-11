@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { ClerkProvider } from "@clerk/nextjs";
+import { neobrutalism } from '@clerk/themes'
 
 interface ClerkCustomProviderProps {
   children: ReactNode;
@@ -9,7 +10,11 @@ interface ClerkCustomProviderProps {
 
 const ClerkCustomProvider = ({ children }: ClerkCustomProviderProps) => {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: [neobrutalism],
+      }}
+    >
       {children}
     </ClerkProvider>
   );
