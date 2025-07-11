@@ -5,13 +5,13 @@ import ShowCollection from "@/components/collections/showCollection";
 import BlankCollection from "@/components/collections/blankCollection";
 import CollectionGroup from "@/components/collections/collectionGroup";
 import CreateCollection from "@/components/collections/createCollection";
+
 import { redirect } from "next/navigation";
 import { PlusIcon } from "lucide-react";
-
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { container } from "@/components/ui/container";
 import type { Metadata } from "next";
-import { cn } from "@/lib/utils";
 
 interface PageProps {
   params: Promise<{

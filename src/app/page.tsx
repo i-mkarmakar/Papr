@@ -1,15 +1,18 @@
 import Logo from "@/components/ui/logos/logo";
+
 import { cn } from "@/lib/utils";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import BackgroundGradient from "@/components/home/backgroundGradient";
 import Link from "next/link";
 import { ChevronRightIcon } from "lucide-react";
 import FooterNav from "@/components/footerNav";
-import BackgroundGradient from "@/components/backgroundGradient";
 
 const HomePage = () => {
   return (
     <main>
+      {/* Background */}
       <BackgroundGradient />
+      {/* Content */}
       <section className="relative flex min-h-[90vh] w-full items-center justify-center px-4 md:px-4 lg:px-8">
         <div className="w-full max-w-4xl items-center">
           <div className="flex flex-col items-center space-y-6 text-center">
@@ -36,6 +39,7 @@ const HomePage = () => {
               organizations, collections and reminders to stay focused on your
               things.
             </p>
+            {/* Buttons */}
             <div
               className={cn(
                 "flex flex-wrap gap-2 pt-2",
@@ -52,7 +56,7 @@ const HomePage = () => {
                   "py-6",
                 )}
               >
-                <Button>Get Started</Button>
+                <span>Get Started</span>
                 <ChevronRightIcon size={20} />
               </Link>
             </div>

@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+
+// App Config:
 import { appConfig } from "@/config";
+
+// Styles:
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
+
+// Fonts:
 import { fontOnest, fontSans } from "@/fonts";
+
+// Global layout & providers:
+import CreditsFooter from "@/components/credits";
 import QueryProvider from "@/providers/queryProvider";
 import { ThemeProvider } from "@/providers/themeProvider";
 import ClerkCustomProvider from "@/providers/clerkProvider";
-import CreditsFooter from "@/components/credits";
 
+// Metadata:
 export const metadata: Metadata = {
   description: appConfig.description,
   metadataBase: new URL(appConfig.prodUrl),
