@@ -1,6 +1,6 @@
 import Logo from "@/components/ui/logos/logo";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { ChevronRightIcon } from "lucide-react";
 import FooterNav from "@/components/footerNav";
@@ -52,7 +52,7 @@ const HomePage = () => {
                   "py-6",
                 )}
               >
-                <span>Get Started</span>
+                <Button>Get Started</Button>
                 <ChevronRightIcon size={20} />
               </Link>
             </div>
