@@ -1,37 +1,67 @@
+import Logo from "@/components/ui/logos/logo";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import { ChevronRightIcon } from "lucide-react";
+import FooterNav from "@/components/footerNav";
+import BackgroundGradient from "@/components/backgroundGradient";
 
-export default function HomePage() {
+const HomePage = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">First Steps →</h3>
-            <div className="text-lg">
-              Just the basics - Everything you need to know to set up your
-              database and authentication.
+    <main>
+      <BackgroundGradient />
+      <section className="relative flex min-h-[90vh] w-full items-center justify-center px-4 md:px-4 lg:px-8">
+        <div className="w-full max-w-4xl items-center">
+          <div className="flex flex-col items-center space-y-6 text-center">
+            <Logo
+              width={70}
+              height={70}
+              className="animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-100 duration-500"
+            />
+            <h1
+              className={cn(
+                "text-4xl font-bold tracking-tight text-zinc-900 md:text-5xl lg:text-6xl dark:text-white",
+                "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-200 duration-500",
+              )}
+            >
+              Your things, organized.
+            </h1>
+            <p
+              className={cn(
+                "max-w-lg text-lg text-zinc-600 dark:text-zinc-400",
+                "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-500 duration-500",
+              )}
+            >
+              A simple and powerful way to manage your tasks. Create
+              organizations, collections and reminders to stay focused on your
+              things.
+            </p>
+            <div
+              className={cn(
+                "flex flex-wrap gap-2 pt-2",
+                "animate-in fill-mode-backwards fade-in delay-700 duration-500",
+              )}
+            >
+              <Link
+                href="/app"
+                className={cn(
+                  buttonVariants({
+                    variant: "default",
+                    size: "lg",
+                  }),
+                  "py-6",
+                )}
+              >
+                <span>Get Started</span>
+                <ChevronRightIcon size={20} />
+              </Link>
             </div>
-          </Link>
-          <Link
-            className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className="text-2xl font-bold">Documentation →</h3>
-            <div className="text-lg">
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
+          </div>
         </div>
-      </div>
+      </section>
+      <FooterNav />
     </main>
   );
-}
+};
+
+export default HomePage;
