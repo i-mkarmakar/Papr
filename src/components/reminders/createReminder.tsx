@@ -94,10 +94,9 @@ const CreateReminder = ({
         title="Add a new reminder"
         className={cn(
           buttonVariants({
-            // variant: "ghost",
             size: "icon",
           }),
-          "h-7",
+          "h-7 cursor-pointer",
         )}
       >
         <PlusIcon size={16} />
@@ -148,7 +147,7 @@ const CreateReminder = ({
                   size={14}
                   className={cn(
                     openDueDate ? "rotate-180" : "rotate-0",
-                    "transition-transform duration-200 ease-in-out cursor-pointer",
+                    "cursor-pointer transition-transform duration-200 ease-in-out",
                   )}
                 />
               </CollapsibleTrigger>
@@ -173,7 +172,11 @@ const CreateReminder = ({
               </CollapsibleContent>
             </Collapsible>
             <div className="flex items-center justify-end space-x-2">
-              <Button type="submit" disabled={isLoading} className="w-full cursor-pointer">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="w-full cursor-pointer"
+              >
                 {isLoading ? (
                   <LoaderIcon className="animate-spin" size={16} />
                 ) : (

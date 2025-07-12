@@ -120,15 +120,9 @@ const EditCollection = (props: EditCollectionProps) => {
             />
             <DialogFooter>
               <Button
-                type="button"
-                onClick={() => handleOnClose(false)}
-                // variant="outline"
-              >
-                <span>Cancel</span>
-              </Button>
-              <Button
                 type="submit"
                 disabled={loading || !form.formState.isDirty}
+                className="w-full cursor-pointer"
               >
                 {loading ? (
                   <LoaderIcon size={16} className="animate-spin" />

@@ -9,12 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { buttonVariants } from "@/components/ui/button";
-import {
-  EllipsisIcon,
-  XIcon,
-  PencilLineIcon,
-  TrashIcon,
-} from "lucide-react";
+import { EllipsisIcon, XIcon, PencilLineIcon, TrashIcon } from "lucide-react";
 
 import EditCollection from "./editCollection";
 import DeleteCollection from "./deleteCollection";
@@ -36,7 +31,7 @@ const CollectionOptions = ({ collection }: CollectionOptionsProps) => {
           buttonVariants({
             size: "icon",
           }),
-          "h-7"
+          "h-7 cursor-pointer",
         )}
       >
         {isOpen ? <XIcon size={16} /> : <EllipsisIcon size={16} />}
@@ -48,14 +43,20 @@ const CollectionOptions = ({ collection }: CollectionOptionsProps) => {
           title={collection.name}
           colors={collection.colors}
         >
-          <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+          <DropdownMenuItem
+            onSelect={(e) => e.preventDefault()}
+            className="cursor-pointer"
+          >
             <PencilLineIcon size={14} className="mr-2" />
             <span>Edit</span>
           </DropdownMenuItem>
         </EditCollection>
         <DropdownMenuSeparator />
         <DeleteCollection collectionId={collection.id} title={collection.name}>
-          <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+          <DropdownMenuItem
+            onSelect={(e) => e.preventDefault()}
+            className="cursor-pointer"
+          >
             <TrashIcon size={14} className="mr-2" />
             <span>Delete</span>
           </DropdownMenuItem>

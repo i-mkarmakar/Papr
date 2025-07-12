@@ -51,10 +51,9 @@ const DeleteCollection = (props: DeleteCollectionProps) => {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter>
-          <Button>Cancel</Button>
           <Button
             onClick={() => handleDeleteCollection()}
-            // variant="destructive"
+            className="cursor-pointer"
           >
             Delete
           </Button>
