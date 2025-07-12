@@ -138,7 +138,7 @@ const CreateReminder = ({
               )}
             />
             <Collapsible open={openDueDate} onOpenChange={setOpenDueDate}>
-              <CollapsibleTrigger className="flex w-full items-center justify-between text-sm">
+              <CollapsibleTrigger className="flex items-center text-sm cursor-pointer">
                 <div className="flex items-center space-x-2">
                   <CalendarIcon size={14} />
                   <span>Due Date</span>
@@ -147,7 +147,7 @@ const CreateReminder = ({
                   size={14}
                   className={cn(
                     openDueDate ? "rotate-180" : "rotate-0",
-                    "cursor-pointer transition-transform duration-200 ease-in-out",
+                    "ml-2 transition-transform duration-200 ease-in-out",
                   )}
                 />
               </CollapsibleTrigger>
