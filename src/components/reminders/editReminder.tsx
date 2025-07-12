@@ -77,8 +77,6 @@ const EditReminder = ({ reminderData, className }: EditReminderProps) => {
       <DialogTrigger
         title="Edit reminder"
         className={cn(
-          "text-zinc-700 dark:text-zinc-300",
-          "hover:text-zinc-900 dark:hover:text-zinc-50",
           "transition-colors duration-100 ease-in-out",
           className,
         )}
@@ -115,15 +113,9 @@ const EditReminder = ({ reminderData, className }: EditReminderProps) => {
             />
             <div className="flex items-center justify-end space-x-2">
               <Button
-                type="button"
-                onClick={() => handleOnClose(false)}
-                // variant="outline"
-              >
-                <span>Cancel</span>
-              </Button>
-              <Button
                 type="submit"
                 disabled={isLoading || !form.formState.isDirty}
+                className="w-full cursor-pointer"
               >
                 {isLoading ? (
                   <LoaderIcon className="animate-spin" size={16} />

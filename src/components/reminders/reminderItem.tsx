@@ -35,7 +35,7 @@ const CheckBoxAnimatedIcon = () => {
     >
       <motion.path
         d="M5 7.5L7 9.5L7.40859 8.81902C8.13346 7.6109 9.00376 6.49624 10 5.5V5.5"
-        className="stroke-white dark:stroke-black"
+        className="stroke-white"
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -67,14 +67,14 @@ const Checkbox = ({ reminderId, checked, onCheckedChange }: CheckboxProps) => {
       className={cn(
         "cursor-pointer",
         "flex h-4 w-4 flex-shrink-0 appearance-none items-center justify-center rounded outline-none",
-        "bg-zinc-100 dark:bg-zinc-900",
-        "border border-zinc-400 dark:border-zinc-700",
-        "transition-colors ease-in-out hover:border-zinc-400 dark:hover:border-zinc-600",
+        "bg-zinc-100",
+        "border border-zinc-400",
+        "transition-colors ease-in-out hover:border-zinc-400",
       )}
     >
       <RadixCheckbox.Indicator>
         <motion.div
-          className="h-[inherit] w-[inherit] rounded bg-black dark:bg-white"
+          className="h-[inherit] w-[inherit] rounded bg-black"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
@@ -136,7 +136,7 @@ const ReminderItem = ({ reminderData }: ReminderItemProps) => {
         <div className="flex w-full items-center space-x-3">
           <label
             htmlFor={reminderData.id}
-            className="text-sm text-pretty font-medium text-black peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
+            className="text-sm text-pretty font-medium text-black peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             {reminderData.title}
           </label>
@@ -149,13 +149,13 @@ const ReminderItem = ({ reminderData }: ReminderItemProps) => {
           </div>
         </div>
         {reminderData.dueDate && (
-          <div className="flex items-center space-x-1.5 text-sm text-zinc-500 dark:text-zinc-400">
+          <div className="flex items-center space-x-1.5 text-sm">
             <CalendarIcon size={14} />
             <span>{format(new Date(reminderData.dueDate), "dd MMM yyyy")}</span>
           </div>
         )}
         {reminderData.description && (
-          <span className="text-sm text-zinc-500 dark:text-zinc-400">
+          <span className="text-sm">
             {reminderData.description}
           </span>
         )}

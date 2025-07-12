@@ -43,8 +43,7 @@ const DeleteReminder = (props: DeleteReminderProps) => {
       <DialogTrigger
         title="Delete reminder"
         className={cn(
-          "text-zinc-700 dark:text-zinc-300",
-          "hover:text-zinc-900 dark:hover:text-zinc-50",
+          "hover:text-zinc-900",
           "transition-colors duration-100 ease-in-out",
           props.className,
         )}
@@ -60,16 +59,9 @@ const DeleteReminder = (props: DeleteReminderProps) => {
         </DialogHeader>
         <DialogFooter>
           <Button
-            type="button"
-            // variant="outline"
-            onClick={() => setIsOpen(false)}
-          >
-            Cancel
-          </Button>
-          <Button
-            // variant="destructive"
             onClick={() => handleDeleteReminder()}
             disabled={isLoading}
+            className="bg-red-600 cursor-pointer"
           >
             {isLoading ? (
               <LoaderIcon className="animate-spin" size={16} />
