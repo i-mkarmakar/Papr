@@ -12,10 +12,9 @@ const AppOptions = (props: AppOptionsProps) => {
     <div
       className={cn(
         "sticky top-0",
-        "z-40 w-full py-4",
-        "bg-zinc-50 dark:bg-zinc-900",
+        "z-40 w-full py-2.5",
         "flex w-full flex-col justify-between space-y-3 md:flex-row md:items-center md:space-y-0",
-        "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 duration-500 delay-0",
+        "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-0 duration-500",
       )}
     >
       <div
