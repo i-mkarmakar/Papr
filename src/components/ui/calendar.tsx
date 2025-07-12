@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { DayPicker } from "react-day-picker"
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { DayPicker } from "react-day-picker";
 
-import * as React from "react"
+import * as React from "react";
 
-import { buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>
+export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
 function Calendar({
   className,
@@ -21,7 +21,7 @@ function Calendar({
     <DayPicker
       showOutsideDays={showOutsideDays}
       className={cn(
-        "rounded-none! border-2 border-border bg-main p-3 font-heading shadow-shadow",
+        "border-border bg-main font-heading shadow-shadow rounded-none! border-2 p-3",
         className,
       )}
       classNames={{
@@ -40,27 +40,27 @@ function Calendar({
         table: "w-full border-collapse space-y-1",
         head_row: "flex",
         head_cell:
-          "text-main-foreground rounded-base w-9 font-base text-[0.8rem]",
+          "text-main-foreground rounded-none w-9 font-base text-[0.8rem]",
         row: "flex w-full mt-2",
         cell: cn(
-          "relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-black/50 [&:has([aria-selected])]:text-white! [&:has([aria-selected].day-range-end)]:rounded-r-base",
+          "relative p-0 text-center text-sm focus-within:relative focus-within:z-20 [&:has([aria-selected])]:bg-black/50 [&:has([aria-selected])]:text-white! [&:has([aria-selected].day-range-end)]:rounded-r-none",
           props.mode === "range"
-            ? "[&:has(>.day-range-end)]:rounded-r-base [&:has(>.day-range-start)]:rounded-l-base [&:has([aria-selected])]:bg-black/50! first:[&:has([aria-selected])]:rounded-l-base last:[&:has([aria-selected])]:rounded-r-base"
-            : "[&:has([aria-selected])]:rounded-base [&:has([aria-selected])]:bg-black/50",
+            ? "[&:has(>.day-range-end)]:rounded-r-none [&:has(>.day-range-start)]:rounded-l-none [&:has([aria-selected])]:bg-black/50! first:[&:has([aria-selected])]:rounded-l-none last:[&:has([aria-selected])]:rounded-r-none"
+            : "[&:has([aria-selected])]:rounded-none [&:has([aria-selected])]:bg-black/50",
         ),
         day: cn(
           buttonVariants({ variant: "noShadow" }),
           "size-9 p-0 font-base aria-selected:opacity-100",
         ),
         day_range_start:
-          "day-range-start aria-selected:bg-black! aria-selected:text-white rounded-base",
+          "day-range-start aria-selected:bg-black! aria-selected:text-white rounded-none",
         day_range_end:
-          "day-range-end aria-selected:bg-black! aria-selected:text-white rounded-base",
-        day_selected: "bg-black! text-white! rounded-base",
+          "day-range-end aria-selected:bg-black! aria-selected:text-white rounded-none",
+        day_selected: "bg-black! text-white! rounded-none",
         day_today: "bg-secondary-background text-foreground!",
         day_outside:
           "day-outside text-main-foreground opacity-50 aria-selected:bg-none",
-        day_disabled: "text-main-foreground opacity-50 rounded-base",
+        day_disabled: "text-main-foreground opacity-50 rounded-none",
         day_range_middle: "aria-selected:bg-black/50! aria-selected:text-white",
         day_hidden: "invisible",
         ...classNames,
@@ -75,8 +75,8 @@ function Calendar({
       }}
       {...props}
     />
-  )
+  );
 }
-Calendar.displayName = "Calendar"
+Calendar.displayName = "Calendar";
 
-export { Calendar }
+export { Calendar };
