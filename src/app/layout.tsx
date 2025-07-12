@@ -1,23 +1,13 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-
-// App Config:
 import { appConfig } from "@/config";
-
-// Styles:
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
-
-// Fonts:
 import { fontOnest, fontSans } from "@/fonts";
-
-// Global layout & providers:
-import CreditsFooter from "@/components/credits";
 import QueryProvider from "@/providers/queryProvider";
 import { ThemeProvider } from "@/providers/themeProvider";
 import ClerkCustomProvider from "@/providers/clerkProvider";
 
-// Metadata:
 export const metadata: Metadata = {
   description: appConfig.description,
   metadataBase: new URL(appConfig.prodUrl),
@@ -43,7 +33,6 @@ export default function RootLayout({
         className={cn(
           `${fontSans.variable} ${fontOnest.variable}`,
           "font-sans antialiased",
-          "bg-zinc-100 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-50",
         )}
       >
         <ThemeProvider
@@ -54,7 +43,6 @@ export default function RootLayout({
         >
           <ClerkCustomProvider>
             <QueryProvider>{children}</QueryProvider>
-            <CreditsFooter />
           </ClerkCustomProvider>
         </ThemeProvider>
       </body>

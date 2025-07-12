@@ -5,14 +5,11 @@ import { buttonVariants } from "@/components/ui/button";
 import BackgroundGradient from "@/components/home/backgroundGradient";
 import Link from "next/link";
 import { ChevronRightIcon } from "lucide-react";
-import FooterNav from "@/components/footerNav";
 
 const HomePage = () => {
   return (
     <main>
-      {/* Background */}
       <BackgroundGradient />
-      {/* Content */}
       <section className="relative flex min-h-[90vh] w-full items-center justify-center px-4 md:px-4 lg:px-8">
         <div className="w-full max-w-4xl items-center">
           <div className="flex flex-col items-center space-y-6 text-center">
@@ -23,7 +20,7 @@ const HomePage = () => {
             />
             <h1
               className={cn(
-                "text-4xl font-bold tracking-tight text-zinc-900 md:text-5xl lg:text-6xl dark:text-white",
+                "text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl",
                 "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-200 duration-500",
               )}
             >
@@ -31,7 +28,7 @@ const HomePage = () => {
             </h1>
             <p
               className={cn(
-                "max-w-lg text-lg text-zinc-600 dark:text-zinc-400",
+                "max-w-lg text-lg",
                 "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-500 duration-500",
               )}
             >
@@ -39,7 +36,6 @@ const HomePage = () => {
               organizations, collections and reminders to stay focused on your
               things.
             </p>
-            {/* Buttons */}
             <div
               className={cn(
                 "flex flex-wrap gap-2 pt-2",
@@ -63,7 +59,6 @@ const HomePage = () => {
           </div>
         </div>
       </section>
-      <FooterNav />
     </main>
   );
 };

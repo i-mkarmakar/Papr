@@ -15,53 +15,53 @@ import CollectionGroup from "@/components/collections/collectionGroup";
 import CreateCollection from "@/components/collections/createCollection";
 import { Await } from "@/lib/await";
 
-export const metadata: Metadata = {
-  title: "Home",
-};
-
 export default function AppHomepage() {
   return (
-    <div className="flex flex-col pb-5">
+    <>
       <AppOptions>
         <CreateCollection>
-          <Button variant="default">
+          <Button className="cursor-pointer">
             <PlusIcon size={16} />
             <span>Create Collection</span>
           </Button>
         </CreateCollection>
       </AppOptions>
-      <main className={cn(container, "mt-6")}>
-        <Await
-          promise={getCollectionsWithReminders()}
-          fallback={<LoadingData text="Preparing..." />}
-          errorComponent={<div>Error</div>}
-        >
-          {(data) => {
-            if (data) {
-              if (data.length === 0) {
+      <div className="flex flex-col border-t-4">
+        <main className={cn(container, "mt-6")}>
+          <Await
+            promise={getCollectionsWithReminders()}
+            fallback={<LoadingData text="Preparing..." />}
+            errorComponent={<div>Error</div>}
+          >
+            {(data) => {
+              if (data) {
+                if (data.length === 0) {
+                  return (
+                    <BlankCollection>
+                      <CreateCollection>
+                        <p className="font-onest text-lg">
+                          Start organizing your things by creating a collection
+                        </p>
+                      </CreateCollection>
+                    </BlankCollection>
+                  );
+                }
                 return (
-                  <BlankCollection>
-                    <CreateCollection>
-                      <Button>Create</Button>
-                    </CreateCollection>
-                  </BlankCollection>
+                  <CollectionGroup>
+                    {data.map((item, idx) => (
+                      <ShowCollection
+                        key={item.collection.id ?? idx}
+                        collection={item.collection}
+                        reminders={item.reminders}
+                      />
+                    ))}
+                  </CollectionGroup>
                 );
               }
-              return (
-                <CollectionGroup>
-                  {data.map((item, idx) => (
-                    <ShowCollection
-                      key={item.collection.id ?? idx}
-                      collection={item.collection}
-                      reminders={item.reminders}
-                    />
-                  ))}
-                </CollectionGroup>
-              );
-            }
-          }}
-        </Await>
-      </main>
-    </div>
+            }}
+          </Await>
+        </main>
+      </div>
+    </>
   );
 }
