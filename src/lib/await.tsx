@@ -21,7 +21,6 @@ export function Await<T>({
   fallback = null,
   errorComponent,
 }: AwaitProps<T>) {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const MaybeErrorBoundary = errorComponent ? ErrorBoundary : Fragment;
 
   return (
