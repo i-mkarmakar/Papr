@@ -22,7 +22,7 @@ export default function AppHomepage() {
         <CreateCollection>
           <Button className="cursor-pointer">
             <PlusIcon size={16} />
-            <span>Create Collection</span>
+            <span className="font-bold">Create Collection</span>
           </Button>
         </CreateCollection>
       </AppOptions>

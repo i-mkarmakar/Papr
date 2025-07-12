@@ -32,14 +32,17 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
     >
       <nav
         className={cn(
-          "flex h-full flex-col pt-6 pb-2",
+          "flex h-full flex-col pt-5",
           isOpen ? "opacity-100" : "opacity-0",
         )}
       >
         <div className="flex flex-1">
           <div className="flex w-full flex-col">
-            <Link href="/app" className="px-4 pb-2 text-xl font-medium">
-              Papr
+            <Link
+              href="/app"
+              className="flex items-center gap-2 px-4 pb-2 text-xl font-medium"
+            >
+              <img src="/logo.png" alt="Papr Logo" className="h-8 w-26" />
             </Link>
             <Separator className="border-3" />
 
@@ -47,7 +50,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
               <SidebarLink href="/app">
                 <div className="flex items-center gap-2 px-4 py-2">
                   <HouseIcon size={20} />
-                  <span>Home</span>
+                  <span className="font-bold">Home</span>
                 </div>
               </SidebarLink>
 
@@ -61,7 +64,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
                     <button className={cn(SidebarLinkStyle)}>
                       <div className="flex items-center gap-2 px-4 py-2">
                         <FolderPlusIcon size={20} />
-                        <span>Create Organization</span>
+                        <span className="font-bold">Create Organization</span>
                       </div>
                     </button>
                   </CreateOrganization>
@@ -79,7 +82,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
                     <Separator className="border-2" />
                     <div className="flex items-center gap-2 px-4 py-4">
                       <Building size={20} />
-                      <span>Organizations</span>
+                      <span className="font-bold">Organizations</span>
                     </div>
                     <ShowOrganizations userId={user.id} />
                   </>

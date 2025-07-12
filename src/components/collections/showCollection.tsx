@@ -38,7 +38,7 @@ const ShowCollection = ({ collection, reminders }: ShowCollectionProps) => {
                   className={cn(collection.colors, "h-4 w-4 rounded-full")}
                 />
               )}
-              <span className="text-base font-medium">{collection.name}</span>
+              <span className="text-base font-bold">{collection.name}</span>
             </div>
           </AccordionTrigger>
 
