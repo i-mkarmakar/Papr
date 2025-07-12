@@ -27,7 +27,7 @@ const ShowOrganizations = ({ userId }: ShowOrganizationsProps) => {
       key={org.slug}
       className={cn(
         "group flex items-center gap-2 px-4",
-        "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 duration-200",
+        "animate-in fade-in slide-in-from-bottom-2 duration-200",
       )}
     >
       <SidebarLink href={`/app/${org.slug}`} title={org.name}>

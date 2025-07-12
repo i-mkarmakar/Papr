@@ -26,8 +26,10 @@ const OrganizationOptions = (props: OrganizationOptionsProps) => {
         title="Options"
         className={cn(
           SidebarLinkStyle,
-          "w-fit px-2 py-2 opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100",
-          "focus:outline-none",
+          "w-fit px-2 py-2 opacity-0 transition-opacity duration-200 ease-in-out",
+          "group-hover:opacity-100",
+          "hover:bg-transparent focus:bg-transparent active:bg-transparent",
+          "hover:text-current",
           isOpen && "opacity-100",
           props.className,
         )}
