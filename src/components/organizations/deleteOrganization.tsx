@@ -61,10 +61,9 @@ const DeleteOrganization = (props: DeleteOrganizationProps) => {
         </DialogHeader>
         <DialogFooter>
           <Button
-            // variant="destructive"
             onClick={() => handleDeleteOrganization()}
             disabled={isLoading}
-            className="bg-red-600 cursor-pointer"
+            className="cursor-pointer bg-red-600"
           >
             {isLoading ? (
               <LoaderIcon className="animate-spin" size={16} />

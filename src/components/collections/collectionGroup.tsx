@@ -9,7 +9,7 @@ const CollectionGroup = (props: CollectionGroupProps) => {
   return (
     <div
       className={cn(
-        "mt-3 flex flex-col space-y-14",
+        "mt-2 flex flex-col space-y-6",
         "animate-in fill-mode-backwards fade-in slide-in-from-bottom-4 delay-200 duration-500",
       )}
     >
