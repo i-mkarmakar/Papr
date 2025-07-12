@@ -107,14 +107,7 @@ const CreateOrganization = (props: CreateOrganizationProps) => {
               )}
             />
             <DialogFooter>
-              <Button
-                type="button"
-                // variant="outline"
-                onClick={() => setIsOpen(false)}
-              >
-                Cancel
-              </Button>
-              <Button type="submit" disabled={isLoading}>
+              <Button type="submit" disabled={isLoading} className="w-full cursor-pointer">
                 {isLoading ? (
                   <LoaderIcon className="animate-spin" size={16} />
                 ) : (
