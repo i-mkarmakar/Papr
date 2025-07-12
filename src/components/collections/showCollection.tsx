@@ -1,13 +1,11 @@
 "use client";
 
 import type { GetCollections, GetReminders } from "@/server/db/types";
-
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { Flower } from "@/components/ui/shapes";
 import { cn } from "@/lib/utils";
 import { ChevronUpIcon } from "lucide-react";
 import { useState } from "react";
@@ -24,18 +22,12 @@ const ShowCollection = ({ collection, reminders }: ShowCollectionProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-      <div
-        className={cn(
-          "flex w-full items-center justify-center",
-          "border-b border-zinc-200 pb-1.5 dark:border-zinc-800",
-        )}
-      >
+      <div className={cn("flex w-full items-center justify-center")}>
         <CollapsibleTrigger
           className={cn(
             "flex w-full cursor-pointer items-center justify-between pr-2",
-            "text-zinc-600 dark:text-zinc-400",
-            isOpen && "text-zinc-900 dark:text-zinc-50",
-            "hover:text-zinc-900 dark:hover:text-zinc-50",
+            isOpen && "text-zinc-900",
+            "hover:text-zinc-900",
             "transition-colors duration-100 ease-in-out",
           )}
         >
@@ -60,8 +52,7 @@ const ShowCollection = ({ collection, reminders }: ShowCollectionProps) => {
       <CollapsibleContent>
         {reminders.length === 0 ? (
           <div className="flex flex-col items-center justify-center space-y-3 py-6">
-            <Flower width={30} height={30} />
-            <p className="font-onest text-lg text-zinc-600 dark:text-zinc-400">
+            <p className="font-onest text-lg text-zinc-600">
               Add some reminders to this collection
             </p>
           </div>

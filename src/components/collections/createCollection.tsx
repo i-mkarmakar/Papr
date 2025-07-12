@@ -2,7 +2,6 @@
 
 import type { InsertCollection } from "@/server/db/types";
 import { useState, type ReactNode } from "react";
-
 import {
   Dialog,
   DialogContent,
@@ -88,7 +87,7 @@ const CreateCollection = ({
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(handleCreateCollection)}
-            className="space-y-8 mt-2"
+            className="mt-2 space-y-8"
           >
             <FormField
               control={form.control}
@@ -126,13 +125,10 @@ const CreateCollection = ({
             />
             <DialogFooter>
               <Button
-                type="button"
-                onClick={() => handleOnClose(false)}
-                // variant="outline"
+                type="submit"
+                disabled={loading}
+                className="w-full cursor-pointer justify-center"
               >
-                <span>Cancel</span>
-              </Button>
-              <Button type="submit" disabled={loading}>
                 {loading ? (
                   <LoaderIcon size={16} className="animate-spin" />
                 ) : (
