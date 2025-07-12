@@ -2,6 +2,7 @@
 
 import { UserButton } from "@clerk/nextjs";
 import { ChevronDownIcon } from "lucide-react";
+import { useRef } from "react";
 
 interface UserMenuProps {
   fullName?: string;
@@ -9,20 +10,34 @@ interface UserMenuProps {
 }
 
 const UserMenu = ({ fullName, emailAddresses }: UserMenuProps) => {
+  const userButtonRef = useRef<HTMLDivElement>(null);
+
+  const handleClick = () => {
+    const button = userButtonRef.current?.querySelector("button");
+    if (button) button.click();
+  };
+
   return (
-    <div className="flex items-center space-x-2">
-      <div className="flex items-center gap-0.5">
-        <UserButton />
+    <div
+      className="flex max-w-xs cursor-pointer items-center space-x-2"
+      onClick={handleClick}
+    >
+      <div className="flex items-center" ref={userButtonRef}>
+        <UserButton afterSignOutUrl="/" />
+      </div>
+      <div className="flex items-center space-x-2 overflow-hidden">
+        <div className="flex max-w-[140px] flex-col space-y-0.5 overflow-hidden text-left">
+          <p className="truncate text-sm leading-none font-medium text-zinc-800">
+            {fullName}
+          </p>
+          <p className="truncate text-xs text-zinc-500">
+            {emailAddresses}
+          </p>
+        </div>
         <ChevronDownIcon
           size={14}
-          className="rounded-full bg-zinc-300 p-0.5 dark:bg-zinc-700/50"
+          className="rounded-full bg-zinc-300 p-0.5 text-zinc-700"
         />
-      </div>
-      <div className="flex flex-col space-y-0.5">
-        <p className="max-w-32 truncate text-sm font-medium">{fullName}</p>
-        <p className="max-w-32 truncate text-xs font-medium text-zinc-600 dark:text-zinc-400">
-          {emailAddresses}
-        </p>
       </div>
     </div>
   );
