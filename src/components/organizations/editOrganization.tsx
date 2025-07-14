@@ -107,9 +107,9 @@ const EditOrganization = (props: EditOrganizationProps) => {
                 disabled={isLoading || !form.formState.isDirty}
               >
                 {isLoading ? (
-                  <LoaderIcon className="animate-spin" size={16} />
+                  <LoaderIcon className="animate-spin h-4 w-4" />
                 ) : (
-                  <PencilLineIcon size={16} />
+                  <PencilLineIcon className="h-4 w-4" />
                 )}
                 <span>{isLoading ? "Editing..." : "Edit"}</span>
               </Button>

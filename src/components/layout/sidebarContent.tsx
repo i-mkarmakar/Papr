@@ -48,7 +48,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
             <nav className="flex flex-col">
               <SidebarLink href="/app">
                 <div className="flex items-center gap-2 px-4 py-2">
-                  <HouseIcon size={20} />
+                  <HouseIcon className="h-4 w-4" />
                   <span className="font-semibold">Home</span>
                 </div>
               </SidebarLink>
@@ -62,8 +62,10 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
                   <CreateOrganization>
                     <button className={cn(SidebarLinkStyle)}>
                       <div className="flex items-center gap-2 px-4 py-2">
-                        <FolderPlusIcon size={20} />
-                        <span className="font-semibold">Create Organization</span>
+                        <FolderPlusIcon className="h-4 w-4" />
+                        <span className="font-semibold">
+                          Create Organization
+                        </span>
                       </div>
                     </button>
                   </CreateOrganization>
@@ -80,7 +82,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
                   <>
                     <Separator className="border" />
                     <div className="flex items-center gap-2 px-4 py-4">
-                      <Building size={20} />
+                      <Building className="h-4 w-4" />
                       <span className="font-semibold">Organizations</span>
                     </div>
                     <ShowOrganizations userId={user.id} />

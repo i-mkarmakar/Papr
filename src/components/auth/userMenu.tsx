@@ -37,7 +37,7 @@ const UserMenu = ({ fullName, emailAddresses }: UserMenuProps) => {
           <p className="truncate text-xs text-zinc-500">{emailAddresses}</p>
         </div>
         <ChevronDownIcon
-          className={`size-5 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}
+          className={`h-4 w-4 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}
         />
       </div>
     </div>

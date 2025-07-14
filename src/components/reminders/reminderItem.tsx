@@ -150,7 +150,7 @@ const ReminderItem = ({ reminderData }: ReminderItemProps) => {
         </div>
         {reminderData.dueDate && (
           <div className="flex items-center space-x-1.5 text-sm">
-            <CalendarIcon size={14} />
+            <CalendarIcon className="h-4 w-4" />
             <span>{format(new Date(reminderData.dueDate), "dd MMM yyyy")}</span>
           </div>
         )}

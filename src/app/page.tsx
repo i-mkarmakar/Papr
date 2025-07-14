@@ -2,12 +2,7 @@ import Image from "next/image";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import {
-  ArrowUpRight,
-  ChevronRight,
-  Github,
-  Star,
-} from "lucide-react";
+import { ArrowUpRight, ChevronRight, Github, Star } from "lucide-react";
 import Link from "next/link";
 
 const HomePage = () => {
@@ -51,7 +46,7 @@ const HomePage = () => {
         <div className="mt-8 flex items-center justify-center gap-4">
           <Link href="/app">
             <Button size="lg" className="cursor-pointer text-base">
-              Get Started <ChevronRight className="ml-2 h-5 w-5" />
+              Get Started <ChevronRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
           <Link
@@ -64,7 +59,7 @@ const HomePage = () => {
               size="lg"
               className="cursor-pointer text-base"
             >
-              <Github className="mr-2 h-5 w-5" />
+              <Github className="mr-2 h-4 w-4" />
               GitHub Repo <ArrowUpRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>

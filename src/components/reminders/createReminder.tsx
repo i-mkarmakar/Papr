@@ -13,7 +13,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-
   FormMessage,
 } from "@/components/ui/form";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -98,7 +97,7 @@ const CreateReminder = ({
           "h-7 cursor-pointer",
         )}
       >
-        <PlusIcon size={16} />
+        <PlusIcon className="h-4 w-4" />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -111,7 +110,7 @@ const CreateReminder = ({
             <span>New Reminder</span>
           </DialogTitle>
           <DialogDescription className="flex items-center space-x-1.5">
-            <CornerDownRightIcon size={16} />
+            <CornerDownRightIcon className="h-4 w-4" />
             <span>{collectionName}</span>
           </DialogDescription>
         </DialogHeader>
@@ -137,16 +136,15 @@ const CreateReminder = ({
               )}
             />
             <Collapsible open={openDueDate} onOpenChange={setOpenDueDate}>
-              <CollapsibleTrigger className="flex items-center text-sm cursor-pointer">
+              <CollapsibleTrigger className="flex cursor-pointer items-center text-sm">
                 <div className="flex items-center space-x-2">
-                  <CalendarIcon size={14} />
+                  <CalendarIcon className="h-4 w-4" />
                   <span>Due Date</span>
                 </div>
                 <ChevronDown
-                  size={14}
                   className={cn(
                     openDueDate ? "rotate-180" : "rotate-0",
-                    "ml-2 transition-transform duration-200 ease-in-out",
+                    "ml-2 h-4 w-4 transition-transform duration-200 ease-in-out",
                   )}
                 />
               </CollapsibleTrigger>
@@ -179,7 +177,7 @@ const CreateReminder = ({
                 {isLoading ? (
                   <LoaderIcon className="animate-spin" size={16} />
                 ) : (
-                  <PlusIcon size={16} />
+                  <PlusIcon className="h-4 w-4" />
                 )}
                 <span>{isLoading ? "Creating..." : "Create"}</span>
               </Button>

@@ -129,9 +129,9 @@ const CreateCollection = ({
                 className="w-full cursor-pointer justify-center"
               >
                 {loading ? (
-                  <LoaderIcon size={16} className="animate-spin" />
+                  <LoaderIcon className="animate-spin h-4 w-4" />
                 ) : (
-                  <PlusIcon size={16} />
+                  <PlusIcon className="h-4 w-4" />
                 )}
                 <span>{loading ? "Creating..." : "Create"}</span>
               </Button>

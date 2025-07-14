@@ -33,7 +33,7 @@ const CollectionOptions = ({ collection }: CollectionOptionsProps) => {
           "h-7 cursor-pointer",
         )}
       >
-        {isOpen ? <XIcon size={16} /> : <EllipsisIcon size={16} />}
+        {isOpen ? <XIcon className="h-4 w-4" /> : <EllipsisIcon className="h-4 w-4" />}
       </DropdownMenuTrigger>
 
       <DropdownMenuContent>
@@ -46,7 +46,7 @@ const CollectionOptions = ({ collection }: CollectionOptionsProps) => {
             onSelect={(e) => e.preventDefault()}
             className="cursor-pointer"
           >
-            <PencilLineIcon size={14} className="mr-2" />
+            <PencilLineIcon className="mr-2 h-4 w-4" />
             <span>Edit</span>
           </DropdownMenuItem>
         </EditCollection>
@@ -56,7 +56,7 @@ const CollectionOptions = ({ collection }: CollectionOptionsProps) => {
             onSelect={(e) => e.preventDefault()}
             className="cursor-pointer"
           >
-            <TrashIcon size={14} className="mr-2" />
+            <TrashIcon className="mr-2 h-4 w-4" />
             <span>Delete</span>
           </DropdownMenuItem>
         </DeleteCollection>

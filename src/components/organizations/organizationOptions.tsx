@@ -33,7 +33,7 @@ const OrganizationOptions = (props: OrganizationOptionsProps) => {
           props.className,
         )}
       >
-        <PencilIcon size={14} />
+        <PencilIcon className="h-4 w-4" />
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <EditOrganization
@@ -41,7 +41,7 @@ const OrganizationOptions = (props: OrganizationOptionsProps) => {
           organizationId={props.organization.id}
         >
           <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-            <PencilLineIcon size={14} />
+            <PencilLineIcon className="h-4 w-4" />
             <span>Rename</span>
           </DropdownMenuItem>
         </EditOrganization>
@@ -50,7 +50,7 @@ const OrganizationOptions = (props: OrganizationOptionsProps) => {
           organizationId={props.organization.id}
         >
           <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-            <TrashIcon size={14} />
+            <TrashIcon className="h-4 w-4" />
             <span>Delete</span>
           </DropdownMenuItem>
         </DeleteOrganization>

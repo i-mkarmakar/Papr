@@ -21,7 +21,7 @@ export default function AppHomepage() {
       <AppOptions>
         <CreateCollection>
           <Button className="cursor-pointer">
-            <PlusIcon size={16} />
+            <PlusIcon className="h-4 w-4" />
             <span className="font-semibold">Create Collection</span>
           </Button>
         </CreateCollection>

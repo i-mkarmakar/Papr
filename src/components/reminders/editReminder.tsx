@@ -79,7 +79,7 @@ const EditReminder = ({ reminderData, className }: EditReminderProps) => {
           className,
         )}
       >
-        <PencilIcon size={12} />
+        <PencilIcon className="h-4 w-4" />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -116,9 +116,9 @@ const EditReminder = ({ reminderData, className }: EditReminderProps) => {
                 className="w-full cursor-pointer"
               >
                 {isLoading ? (
-                  <LoaderIcon className="animate-spin" size={16} />
+                  <LoaderIcon className="animate-spin h-4 w-4" />
                 ) : (
-                  <SaveIcon size={16} />
+                  <SaveIcon className="h-4 w-4" />
                 )}
                 <span>{isLoading ? "Editing..." : "Edit"}</span>
               </Button>

@@ -121,9 +121,9 @@ const EditCollection = (props: EditCollectionProps) => {
                 className="w-full cursor-pointer"
               >
                 {loading ? (
-                  <LoaderIcon size={16} className="animate-spin" />
+                  <LoaderIcon className="animate-spin h-4 w-4" />
                 ) : (
-                  <PencilLineIcon size={16} />
+                  <PencilLineIcon className="h-4 w-4" />
                 )}
                 <span>{loading ? "Editing..." : "Edit"}</span>
               </Button>

@@ -105,9 +105,9 @@ const CreateOrganization = (props: CreateOrganizationProps) => {
             <DialogFooter>
               <Button type="submit" disabled={isLoading} className="w-full cursor-pointer">
                 {isLoading ? (
-                  <LoaderIcon className="animate-spin" size={16} />
+                  <LoaderIcon className="animate-spin h-4 w-4" />
                 ) : (
-                  <PlusIcon size={16} />
+                  <PlusIcon className="h-4 w-4" />
                 )}
                 <span>{isLoading ? "Creating..." : "Create"}</span>
               </Button>

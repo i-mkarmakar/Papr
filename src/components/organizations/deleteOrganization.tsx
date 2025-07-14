@@ -65,9 +65,9 @@ const DeleteOrganization = (props: DeleteOrganizationProps) => {
             className="cursor-pointer bg-red-600"
           >
             {isLoading ? (
-              <LoaderIcon className="animate-spin" size={16} />
+              <LoaderIcon className="animate-spin h-4 w-4" />
             ) : (
-              <TrashIcon size={16} />
+              <TrashIcon className="h-4 w-4" />
             )}
             <span>{isLoading ? "Deleting..." : "Delete"}</span>
           </Button>
