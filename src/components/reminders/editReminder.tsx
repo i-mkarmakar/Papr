@@ -23,6 +23,7 @@ import { reminderZodSchema } from "@/server/schemas/reminder";
 import { LoaderIcon, PencilIcon, SaveIcon } from "lucide-react";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 
 interface EditReminderProps {
@@ -52,15 +53,15 @@ const EditReminder = ({ reminderData, className }: EditReminderProps) => {
       form.reset();
       setIsOpen(false);
       setIsLoading(false);
-      // toast.success({
-      //   text: "Reminder updated successfully.",
-      // });
+      toast.success(
+        "Reminder updated successfully.",
+      );
     } catch (error) {
       console.error("⚠️ editReminder - Error editing reminder:", error);
-      // toast.error({
-      //   text: "Failed to edit reminder.",
-      //   description: "Please try again later.",
-      // });
+      toast.error(
+        "Failed to edit reminder.",
+        {description: "Please try again later."},
+      );
       setIsLoading(false);
     }
   };

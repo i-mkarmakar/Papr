@@ -35,6 +35,7 @@ import {
 } from "@/components/ui/collapsible";
 import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
 
 interface CreateReminderProps {
   collectionName: string;
@@ -68,15 +69,12 @@ const CreateReminder = ({
       form.reset();
       setIsOpen(false);
       setIsLoading(false);
-      // toast.success({
-      //   text: "Reminder created successfully",
-      // });
+      toast.success("Reminder created successfully");
     } catch (error) {
       console.error("⚠️ createReminder - Error creating reminder:", error);
-      // toast.error({
-      //   text: "Failed to create reminder",
-      //   description: "Please try again later.",
-      // });
+      toast.error("Failed to create reminder", {
+        description: "Please try again later.",
+      });
       setIsLoading(false);
     }
   };

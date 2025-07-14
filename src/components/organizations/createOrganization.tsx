@@ -27,6 +27,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertOrganization } from "@/server/queries/organizations";
 import { organizationZodSchema } from "@/server/schemas/organization";
+import { toast } from "sonner";
 
 interface CreateOrganizationProps {
   children: ReactNode;
@@ -54,15 +55,15 @@ const CreateOrganization = (props: CreateOrganizationProps) => {
       form.reset();
       setIsOpen(false);
       setIsLoading(false);
-      // toast.success({
-      //   text: "Organization created successfully",
-      // });
+      toast.success("Organization created successfully");
     } catch (error) {
-      console.error("⚠️ createOrganization - Error creating organization:", error);
-      // toast.error({
-      //   text: "Failed to create organization",
-      //   description: "Please try again later.",
-      // });
+      console.error(
+        "⚠️ createOrganization - Error creating organization:",
+        error,
+      );
+      toast.error("Failed to create organization", {
+        description: "Please try again later.",
+      });
       setIsLoading(false);
     }
   };
@@ -103,9 +104,13 @@ const CreateOrganization = (props: CreateOrganizationProps) => {
               )}
             />
             <DialogFooter>
-              <Button type="submit" disabled={isLoading} className="w-full cursor-pointer">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="w-full cursor-pointer"
+              >
                 {isLoading ? (
-                  <LoaderIcon className="animate-spin h-4 w-4" />
+                  <LoaderIcon className="h-4 w-4 animate-spin" />
                 ) : (
                   <PlusIcon className="h-4 w-4" />
                 )}

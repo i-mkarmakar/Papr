@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { LoaderIcon, TrashIcon } from "lucide-react";
 import { deleteReminder } from "@/server/queries/reminders";
 import { cn } from "@/lib/utils";
+import { toast } from "sonner";
 
 interface DeleteReminderProps {
   title: string;
@@ -29,9 +30,7 @@ const DeleteReminder = (props: DeleteReminderProps) => {
       await deleteReminder(props.reminderId);
       setIsOpen(false);
       setIsLoading(false);
-      // toast.success({
-      //   text: "Deleted reminder successfully",
-      // });
+      toast.success("Deleted reminder successfully");
     } catch (error) {
       console.error("⚠️ DeleteReminder - Error deleting reminder:", error);
     }
@@ -60,10 +59,10 @@ const DeleteReminder = (props: DeleteReminderProps) => {
           <Button
             onClick={() => handleDeleteReminder()}
             disabled={isLoading}
-            className="bg-red-600 cursor-pointer"
+            className="cursor-pointer bg-red-600"
           >
             {isLoading ? (
-              <LoaderIcon className="animate-spin h-4 w-4" />
+              <LoaderIcon className="h-4 w-4 animate-spin" />
             ) : (
               <TrashIcon className="h-4 w-4" />
             )}

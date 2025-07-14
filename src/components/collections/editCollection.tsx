@@ -26,6 +26,7 @@ import { editCollection } from "@/server/queries/collections";
 import { ColorSelector } from "@/components/ui/colorSelector";
 import { colorOptions } from "./colors";
 import { LoaderIcon, PencilLineIcon } from "lucide-react";
+import { toast } from "sonner";
 
 interface EditCollectionProps {
   title: string;
@@ -53,15 +54,12 @@ const EditCollection = (props: EditCollectionProps) => {
       form.reset();
       setIsOpen(false);
       setLoading(false);
-      // toast.success({
-      //   text: "Collection edited successfully",
-      // });
+      toast.success("Collection edited successfully");
     } catch (error) {
       console.error("⚠️ editCollection - Error editing collection:", error);
-      // toast.error({
-      //   text: "Failed to edit collection.",
-      //   description: "Please try again later.",
-      // });
+      toast.error("Failed to edit collection.", {
+        description: "Please try again later.",
+      });
       setLoading(false);
     }
   };
@@ -121,7 +119,7 @@ const EditCollection = (props: EditCollectionProps) => {
                 className="w-full cursor-pointer"
               >
                 {loading ? (
-                  <LoaderIcon className="animate-spin h-4 w-4" />
+                  <LoaderIcon className="h-4 w-4 animate-spin" />
                 ) : (
                   <PencilLineIcon className="h-4 w-4" />
                 )}

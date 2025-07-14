@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { updateOrganization } from "@/server/queries/organizations";
 import { organizationZodSchema } from "@/server/schemas/organization";
+import { toast } from "sonner";
 
 interface EditOrganizationProps {
   title: string;
@@ -53,18 +54,15 @@ const EditOrganization = (props: EditOrganizationProps) => {
       });
       form.reset();
       setIsOpen(false);
-      // toast.success({
-      //   text: "Organization created successfully",
-      // });
+      toast.success("Organization created successfully");
     } catch (error) {
       console.error(
         "⚠️ updateOrganization - Error updating organization:",
         error,
       );
-      // toast.error({
-      //   text: "Failed to update organization",
-      //   description: "Please try again later.",
-      // });
+      toast.error("Failed to update organization", {
+        description: "Please try again later.",
+      });
     }
   };
 
@@ -107,7 +105,7 @@ const EditOrganization = (props: EditOrganizationProps) => {
                 disabled={isLoading || !form.formState.isDirty}
               >
                 {isLoading ? (
-                  <LoaderIcon className="animate-spin h-4 w-4" />
+                  <LoaderIcon className="h-4 w-4 animate-spin" />
                 ) : (
                   <PencilLineIcon className="h-4 w-4" />
                 )}

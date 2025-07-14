@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { deleteOrganization } from "@/server/queries/organizations";
 import { redirect } from "next/navigation";
 import { LoaderIcon, TrashIcon } from "lucide-react";
+import { toast } from "sonner";
 
 interface DeleteOrganizationProps {
   title: string;
@@ -34,9 +35,9 @@ const DeleteOrganization = (props: DeleteOrganizationProps) => {
       });
       setIsOpen(false);
       setIsLoading(false);
-      // toast.success({
-      //   text: "Deleted organization successfully",
-      // });
+      toast.success(
+        "Deleted organization successfully",
+      );
       redirect("/app");
     } catch (error) {
       console.error(

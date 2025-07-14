@@ -28,6 +28,7 @@ import { collectionZodSchema } from "@/server/schemas/collection";
 import { Input } from "@/components/ui/input";
 import { ColorSelector } from "@/components/ui/colorSelector";
 import { colorOptions } from "./colors";
+import { toast } from "sonner";
 
 interface CreateCollectionProps {
   children: ReactNode;
@@ -55,15 +56,12 @@ const CreateCollection = ({
       form.reset();
       setIsOpen(false);
       setLoading(false);
-      // toast.success({
-      //   text: "Collection created successfully",
-      // });
+      toast.success("Collection created successfully");
     } catch (error) {
       console.error("⚠️ createCollection - Error creating collection:", error);
-      // toast.error({
-      //   text: "Failed to create collection.",
-      //   description: "Please try again later.",
-      // });
+      toast.error("Failed to create collection.", {
+        description: "Please try again later.",
+      });
       setLoading(false);
     }
   };
@@ -129,7 +127,7 @@ const CreateCollection = ({
                 className="w-full cursor-pointer justify-center"
               >
                 {loading ? (
-                  <LoaderIcon className="animate-spin h-4 w-4" />
+                  <LoaderIcon className="h-4 w-4 animate-spin" />
                 ) : (
                   <PlusIcon className="h-4 w-4" />
                 )}

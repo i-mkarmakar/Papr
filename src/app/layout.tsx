@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { fontOnest, fontSans } from "@/fonts";
 import QueryProvider from "@/providers/queryProvider";
 import ClerkCustomProvider from "@/providers/clerkProvider";
+import { Toaster } from "@/components/ui/sonner"
 
 export const metadata: Metadata = {
   title: "Papr - Remember Everything, Focus on What Matters.",
@@ -26,6 +27,7 @@ export default function RootLayout({
         <ClerkCustomProvider>
           <QueryProvider>{children}</QueryProvider>
         </ClerkCustomProvider>
+        <Toaster />
       </body>
     </html>
   );
