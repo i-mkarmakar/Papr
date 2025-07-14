@@ -43,23 +43,27 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <div className="flex flex-col pb-5">
-      <AppOptions title={orgData.organization.name}>
-        {orgData.organization.id && (
-          <CreateCollection organizationId={orgData.organization.id}>
-            <Button variant="neutral" className="cursor-pointer">
-              <PlusIcon size={16} />
-              <span>Create Collection</span>
-            </Button>
-          </CreateCollection>
-        )}
-      </AppOptions>
+    <>
+      <div className="flex flex-col border-b-2">
+        <AppOptions title={orgData.organization.name}>
+          {orgData.organization.id && (
+            <CreateCollection organizationId={orgData.organization.id}>
+              <Button className="cursor-pointer">
+                <PlusIcon size={16} />
+                <span>Create Collection</span>
+              </Button>
+            </CreateCollection>
+          )}
+        </AppOptions>
+      </div>
       <main className={cn(container, "mt-6")}>
         <CollectionGroup>
           {orgData.collections.length === 0 ? (
             <BlankCollection>
-              <CreateCollection organizationId={orgData.organization.id}>
-                <Button>Create</Button>
+              <CreateCollection>
+                <p className="font-onest text-lg">
+                  Start organizing your things by creating a collection
+                </p>
               </CreateCollection>
             </BlankCollection>
           ) : (
@@ -73,6 +77,6 @@ export default async function Page({ params }: PageProps) {
           )}
         </CollectionGroup>
       </main>
-    </div>
+    </>
   );
 }

@@ -22,11 +22,11 @@ export default function AppHomepage() {
         <CreateCollection>
           <Button className="cursor-pointer">
             <PlusIcon size={16} />
-            <span className="font-bold">Create Collection</span>
+            <span className="font-semibold">Create Collection</span>
           </Button>
         </CreateCollection>
       </AppOptions>
-      <div className="flex flex-col border-t-4">
+      <div className="flex flex-col border-t-2">
         <main className={cn(container, "mt-6")}>
           <Await
             promise={getCollectionsWithReminders()}

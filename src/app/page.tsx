@@ -42,7 +42,7 @@ const HomePage = () => {
             <Star /> Star us on GitHub
           </Badge>
         </Link>
-        <h1 className="mt-2 text-4xl leading-[1.2] font-bold tracking-tight sm:text-5xl md:text-6xl">
+        <h1 className="mt-2 text-4xl leading-[1.2] font-semibold tracking-tight sm:text-5xl md:text-6xl">
           Remember Everything, Focus on What Matters.
         </h1>
         <p className="text-muted-foreground mt-4 text-[17px] md:text-lg">
