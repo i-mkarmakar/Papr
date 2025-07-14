@@ -1,65 +1,77 @@
-import Logo from "@/components/ui/logos/logo";
-
-import { cn } from "@/lib/utils";
-import { buttonVariants } from "@/components/ui/button";
-import BackgroundGradient from "@/components/home/backgroundGradient";
+import Image from "next/image";
+import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  ArrowRightIcon,
+  ArrowUpRight,
+  ChevronRight,
+  Github,
+  Star,
+} from "lucide-react";
 import Link from "next/link";
-import { ChevronRightIcon } from "lucide-react";
 
 const HomePage = () => {
   return (
-    <main>
-      <BackgroundGradient />
-      <section className="relative flex min-h-[90vh] w-full items-center justify-center px-4 md:px-4 lg:px-8">
-        <div className="w-full max-w-4xl items-center">
-          <div className="flex flex-col items-center space-y-6 text-center">
-            <Logo
-              width={70}
-              height={70}
-              className="animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-100 duration-500"
-            />
-            <h1
-              className={cn(
-                "text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl",
-                "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-200 duration-500",
-              )}
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-6">
+      <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+        <Link href="/">
+          <Image
+            src="/logo.png"
+            alt="App Logo"
+            width={104}
+            height={32}
+            className="h-8 w-[104px] cursor-pointer"
+          />
+        </Link>
+      </div>
+      <AnimatedGridPattern
+        numSquares={30}
+        maxOpacity={0.1}
+        duration={3}
+        repeatDelay={1}
+      />
+
+      <div className="relative z-10 max-w-2xl text-center">
+        <Link
+          href="https://github.com/i-mkarmakar/Papr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Badge variant="neutral">
+            <Star /> Star us on GitHub
+          </Badge>
+        </Link>
+        <h1 className="mt-2 text-4xl leading-[1.2] font-bold tracking-tight sm:text-5xl md:text-6xl">
+          Remember Everything, Focus on What Matters.
+        </h1>
+        <p className="text-muted-foreground mt-4 text-[17px] md:text-lg">
+          Create organizations, group tasks into collections, and set reminders
+          with ease — all inside a clean, distraction-free interface.
+        </p>
+        <div className="mt-8 flex items-center justify-center gap-4">
+          <Link href="/app">
+            <Button size="lg" className="cursor-pointer text-base">
+              Get Started <ChevronRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+          <Link
+            href="https://github.com/i-mkarmakar/Papr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button
+              variant="noShadow"
+              size="lg"
+              className="cursor-pointer text-base"
             >
-              Your things, organized.
-            </h1>
-            <p
-              className={cn(
-                "max-w-lg text-lg",
-                "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-500 duration-500",
-              )}
-            >
-              A simple and powerful way to manage your tasks. Create
-              organizations, collections and reminders to stay focused on your
-              things.
-            </p>
-            <div
-              className={cn(
-                "flex flex-wrap gap-2 pt-2",
-                "animate-in fill-mode-backwards fade-in delay-700 duration-500",
-              )}
-            >
-              <Link
-                href="/app"
-                className={cn(
-                  buttonVariants({
-                    variant: "default",
-                    size: "lg",
-                  }),
-                  "py-6",
-                )}
-              >
-                <span>Get Started</span>
-                <ChevronRightIcon size={20} />
-              </Link>
-            </div>
-          </div>
+              <Github className="mr-2 h-5 w-5" />
+              GitHub Repo <ArrowUpRight className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   );
 };
 

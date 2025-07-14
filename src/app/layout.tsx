@@ -1,50 +1,31 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { appConfig } from "@/config";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { fontOnest, fontSans } from "@/fonts";
 import QueryProvider from "@/providers/queryProvider";
-import { ThemeProvider } from "@/providers/themeProvider";
 import ClerkCustomProvider from "@/providers/clerkProvider";
 
 export const metadata: Metadata = {
-  description: appConfig.description,
-  metadataBase: new URL(appConfig.prodUrl),
-  alternates: {
-    canonical: "/",
-  },
-  title: {
-    default: `${appConfig.title} - ${appConfig.description}`,
-    template: `%s - ${appConfig.title}`,
-  },
-  icons: [
-    { rel: "icon", url: "/logo_ico.ico" },
-    { rel: "icon", url: "/logo_svg.svg", type: "image/svg+xml" },
-  ],
+  title: "Papr - Remember Everything, Focus on What Matters.",
+  description:
+    "Create organizations, group tasks into collections, and set reminders with ease — all inside a clean, distraction-free interface.",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={cn(
           `${fontSans.variable} ${fontOnest.variable}`,
           "font-sans antialiased",
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ClerkCustomProvider>
-            <QueryProvider>{children}</QueryProvider>
-          </ClerkCustomProvider>
-        </ThemeProvider>
+        <ClerkCustomProvider>
+          <QueryProvider>{children}</QueryProvider>
+        </ClerkCustomProvider>
       </body>
     </html>
   );
