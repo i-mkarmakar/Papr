@@ -11,7 +11,7 @@ const AppOptions = (props: AppOptionsProps) => {
   return (
     <div
       className={cn(
-        "z-40 w-full py-2.5",
+        "z-40 w-full py-3",
         "flex w-full flex-col justify-between space-y-3 md:flex-row md:items-center md:space-y-0",
         "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-0 duration-500",
       )}
@@ -19,7 +19,7 @@ const AppOptions = (props: AppOptionsProps) => {
       <div
         className={cn(container, "flex w-full items-center justify-between")}
       >
-        <h2 className="text-xl font-bold">{props.title ?? "Home"}</h2>
+        <h2 className="text-xl font-semibold">{props.title ?? "Home"}</h2>
         {props.children}
       </div>
     </div>

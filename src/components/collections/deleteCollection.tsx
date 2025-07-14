@@ -14,6 +14,7 @@ import { Button } from "@/components/ui/button";
 
 import { redirect } from "next/navigation";
 import { deleteCollection } from "@/server/queries/collections";
+import { TrashIcon } from "lucide-react";
 
 interface DeleteCollectionProps {
   title: string;
@@ -55,6 +56,7 @@ const DeleteCollection = (props: DeleteCollectionProps) => {
             onClick={() => handleDeleteCollection()}
             className="cursor-pointer"
           >
+            <TrashIcon size={14} className="mr-2" />
             Delete
           </Button>
         </DialogFooter>
