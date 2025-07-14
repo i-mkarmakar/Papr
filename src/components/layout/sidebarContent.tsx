@@ -24,7 +24,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
       className={cn(
         "fixed top-0 left-0 h-full w-60",
         "overflow-x-hidden overflow-y-auto",
-        "border-r-4",
+        "border-r-2",
         "transition-all duration-300 ease-in-out",
         "select-none",
         isOpen ? "translate-x-0" : "-translate-x-full",
@@ -32,7 +32,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
     >
       <nav
         className={cn(
-          "flex h-full flex-col pt-5",
+          "flex h-full flex-col",
           isOpen ? "opacity-100" : "opacity-0",
         )}
       >
@@ -40,21 +40,21 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
           <div className="flex w-full flex-col">
             <Link
               href="/app"
-              className="flex items-center gap-2 px-4 pb-2 text-xl font-medium"
+              className="flex items-center gap-2 p-4 text-xl font-medium"
             >
               <img src="/logo.png" alt="Papr Logo" className="h-8 w-26" />
             </Link>
-            <Separator className="border-3" />
+            <Separator className="border" />
 
             <nav className="flex flex-col">
               <SidebarLink href="/app">
                 <div className="flex items-center gap-2 px-4 py-2">
                   <HouseIcon size={20} />
-                  <span className="font-bold">Home</span>
+                  <span className="font-semibold">Home</span>
                 </div>
               </SidebarLink>
 
-              <Separator className="border-2" />
+              <Separator className="border" />
               {!isLoaded ? (
                 <Skeleton className="h-6 w-full" />
               ) : (
@@ -64,7 +64,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
                     <button className={cn(SidebarLinkStyle)}>
                       <div className="flex items-center gap-2 px-4 py-2">
                         <FolderPlusIcon size={20} />
-                        <span className="font-bold">Create Organization</span>
+                        <span className="font-semibold">Create Organization</span>
                       </div>
                     </button>
                   </CreateOrganization>
@@ -79,10 +79,10 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
                 isSignedIn &&
                 user && (
                   <>
-                    <Separator className="border-2" />
+                    <Separator className="border" />
                     <div className="flex items-center gap-2 px-4 py-4">
                       <Building size={20} />
-                      <span className="font-bold">Organizations</span>
+                      <span className="font-semibold">Organizations</span>
                     </div>
                     <ShowOrganizations userId={user.id} />
                   </>
@@ -93,7 +93,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
         </div>
 
         <section>
-          <Separator className="border-2" />
+          <Separator className="border" />
           <div className="flex flex-col">
             <div className={cn("overflow-hidden p-4")}>
               <UserMenu
