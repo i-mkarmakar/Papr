@@ -3,7 +3,6 @@ import { index, pgTableCreator, uniqueIndex } from "drizzle-orm/pg-core";
 
 export const createTable = pgTableCreator((name) => `reminder_${name}`);
 
-// Organization table
 export const organization = createTable(
   "organization",
   (d) => ({
@@ -26,7 +25,6 @@ export const organization = createTable(
   ],
 );
 
-// Collection table
 export const collection = createTable("collection", (d) => ({
   id: d
     .uuid()
@@ -44,7 +42,6 @@ export const collection = createTable("collection", (d) => ({
     .references(() => organization.id, { onDelete: "cascade" }),
 }));
 
-// Reminder table
 export const reminder = createTable("reminder", (d) => ({
   id: d
     .uuid()
@@ -65,7 +62,6 @@ export const reminder = createTable("reminder", (d) => ({
   createdBy: d.text(),
 }));
 
-// Relations
 export const organizationRelations = relations(organization, ({ many }) => ({
   collections: many(collection),
 }));

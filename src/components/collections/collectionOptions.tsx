@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { buttonVariants } from "@/components/ui/button";
 import { EllipsisIcon, XIcon, PencilLineIcon, TrashIcon } from "lucide-react";
-
 import EditCollection from "./editCollection";
 import DeleteCollection from "./deleteCollection";
 import type { GetCollections } from "@/server/db/types";

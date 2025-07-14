@@ -10,7 +10,6 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-
 import { deleteOrganization } from "@/server/queries/organizations";
 import { redirect } from "next/navigation";
 import { LoaderIcon, TrashIcon } from "lucide-react";

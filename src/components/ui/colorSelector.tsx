@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Check } from "lucide-react";
 import { forwardRef, type HTMLAttributes } from "react";
 
 export interface ColorOption {

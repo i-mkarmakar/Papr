@@ -8,7 +8,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { PencilIcon, PencilLineIcon, TrashIcon } from "lucide-react";
-
 import { SidebarLinkStyle } from "@/components/layout/sidebarLink";
 import EditOrganization from "@/components/organizations/editOrganization";
 import DeleteOrganization from "@/components/organizations/deleteOrganization";

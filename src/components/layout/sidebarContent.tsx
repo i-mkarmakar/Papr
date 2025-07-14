@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useUser } from "@clerk/nextjs";
 import { FolderPlusIcon, HouseIcon, Building } from "lucide-react";
-
 import UserMenu from "@/components/auth/userMenu";
 import { SidebarLink, SidebarLinkStyle } from "@/components/layout/sidebarLink";
 import { Skeleton } from "@/components/ui/skeleton";

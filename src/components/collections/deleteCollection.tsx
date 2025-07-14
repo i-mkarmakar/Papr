@@ -1,6 +1,5 @@
 import { useState, type ReactNode } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-
 import {
   Dialog,
   DialogContent,
@@ -11,7 +10,6 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-
 import { redirect } from "next/navigation";
 import { deleteCollection } from "@/server/queries/collections";
 import { TrashIcon } from "lucide-react";

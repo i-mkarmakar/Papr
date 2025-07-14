@@ -2,7 +2,6 @@
 
 import { useState, type ReactNode } from "react";
 import type { InsertOrganization } from "@/server/db/types";
-
 import {
   Dialog,
   DialogContent,
@@ -12,7 +11,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-
 import {
   Form,
   FormControl,
@@ -23,12 +21,10 @@ import {
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import { LoaderIcon, PlusIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useQueryClient } from "@tanstack/react-query";
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import { insertOrganization } from "@/server/queries/organizations";
 import { organizationZodSchema } from "@/server/schemas/organization";
 

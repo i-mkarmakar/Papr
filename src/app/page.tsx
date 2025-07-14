@@ -3,7 +3,6 @@ import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern"
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
-  ArrowRightIcon,
   ArrowUpRight,
   ChevronRight,
   Github,

@@ -1,10 +1,7 @@
 import type { InsertCollection } from "@/server/db/types";
-
 import { useState, type ReactNode } from "react";
-
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-
 import {
   Dialog,
   DialogContent,
@@ -24,7 +21,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-
 import { collectionZodSchema } from "@/server/schemas/collection";
 import { editCollection } from "@/server/queries/collections";
 import { ColorSelector } from "@/components/ui/colorSelector";
