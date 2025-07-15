@@ -56,14 +56,26 @@ const CreateOrganization = (props: CreateOrganizationProps) => {
       setIsOpen(false);
       setIsLoading(false);
       toast.success("Organization created successfully");
-    } catch (error) {
+    } catch (error: any) {
       console.error(
         "⚠️ createOrganization - Error creating organization:",
         error,
       );
-      toast.error("Failed to create organization", {
-        description: "Please try again later.",
-      });
+
+      if (
+        error?.code === "23505" ||
+        error?.message?.includes("duplicate key") ||
+        error?.response?.data?.message?.includes("already exists")
+      ) {
+        toast.error("Duplicate Organization", {
+          description: "An organization with this name already exists.",
+        });
+      } else {
+        toast.error("Failed to create organization", {
+          description: "Please try again later.",
+        });
+      }
+
       setIsLoading(false);
     }
   };
@@ -114,7 +126,9 @@ const CreateOrganization = (props: CreateOrganizationProps) => {
                 ) : (
                   <PlusIcon className="h-4 w-4" />
                 )}
-                <span>{isLoading ? "Creating..." : "Create"}</span>
+                <span className="ml-2">
+                  {isLoading ? "Creating..." : "Create"}
+                </span>
               </Button>
             </DialogFooter>
           </form>

@@ -54,7 +54,7 @@ const DeleteCollection = (props: DeleteCollectionProps) => {
             onClick={() => handleDeleteCollection()}
             className="cursor-pointer"
           >
-            <TrashIcon className="mr-2 h-4 w-4" />
+            <TrashIcon className="h-4 w-4 text-red-500" />
             Delete
           </Button>
         </DialogFooter>

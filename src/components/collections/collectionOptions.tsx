@@ -56,7 +56,7 @@ const CollectionOptions = ({ collection }: CollectionOptionsProps) => {
             onSelect={(e) => e.preventDefault()}
             className="cursor-pointer"
           >
-            <TrashIcon className="mr-2 h-4 w-4" />
+            <TrashIcon className="h-4 w-4 text-red-500" />
             <span>Delete</span>
           </DropdownMenuItem>
         </DeleteCollection>

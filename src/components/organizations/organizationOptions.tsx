@@ -40,17 +40,22 @@ const OrganizationOptions = (props: OrganizationOptionsProps) => {
           title={props.organization.name}
           organizationId={props.organization.id}
         >
-          <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+            <DropdownMenuItem
+            onSelect={(e) => e.preventDefault()}
+            className="cursor-pointer"
+            >
             <PencilLineIcon className="h-4 w-4" />
             <span>Rename</span>
-          </DropdownMenuItem>
+            </DropdownMenuItem>
         </EditOrganization>
         <DeleteOrganization
           title={props.organization.name}
           organizationId={props.organization.id}
         >
-          <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-            <TrashIcon className="h-4 w-4" />
+          <DropdownMenuItem onSelect={(e) => e.preventDefault()}
+                        className="cursor-pointer"
+            >
+            <TrashIcon className="h-4 w-4 text-red-500" />
             <span>Delete</span>
           </DropdownMenuItem>
         </DeleteOrganization>

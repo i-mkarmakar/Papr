@@ -46,7 +46,7 @@ const DeleteReminder = (props: DeleteReminderProps) => {
           props.className,
         )}
       >
-        <TrashIcon className="h-4 w-4" />
+        <TrashIcon className="h-4 w-4 text-red-500" />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -59,12 +59,12 @@ const DeleteReminder = (props: DeleteReminderProps) => {
           <Button
             onClick={() => handleDeleteReminder()}
             disabled={isLoading}
-            className="cursor-pointer bg-red-600"
+            className="cursor-pointer"
           >
             {isLoading ? (
               <LoaderIcon className="h-4 w-4 animate-spin" />
             ) : (
-              <TrashIcon className="h-4 w-4" />
+              <TrashIcon className="h-4 w-4 text-red-500" />
             )}
             <span>{isLoading ? "Deleting..." : "Confirm"}</span>
           </Button>

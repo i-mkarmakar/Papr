@@ -63,12 +63,12 @@ const DeleteOrganization = (props: DeleteOrganizationProps) => {
           <Button
             onClick={() => handleDeleteOrganization()}
             disabled={isLoading}
-            className="cursor-pointer bg-red-600"
+            className="cursor-pointer"
           >
             {isLoading ? (
               <LoaderIcon className="animate-spin h-4 w-4" />
             ) : (
-              <TrashIcon className="h-4 w-4" />
+              <TrashIcon className="h-4 w-4 text-red-500" />
             )}
             <span>{isLoading ? "Deleting..." : "Delete"}</span>
           </Button>
