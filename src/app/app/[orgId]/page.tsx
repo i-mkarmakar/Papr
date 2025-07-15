@@ -59,7 +59,7 @@ export default async function Page({ params }: PageProps) {
           {orgData.collections.length === 0 ? (
             <BlankCollection>
               <CreateCollection>
-                <p className="font-onest text-lg">
+              <p className="opacity-50 mt-50">
                   Start organizing your things by creating a collection
                 </p>
               </CreateCollection>

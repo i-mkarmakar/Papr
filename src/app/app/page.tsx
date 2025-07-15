@@ -33,7 +33,7 @@ export default function AppHomepage() {
                   return (
                     <BlankCollection>
                       <CreateCollection>
-                        <p className="font-onest text-lg">
+                        <p className="opacity-50 mt-50">
                           Start organizing your things by creating a collection
                         </p>
                       </CreateCollection>
