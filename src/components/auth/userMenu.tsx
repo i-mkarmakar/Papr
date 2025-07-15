@@ -31,10 +31,10 @@ const UserMenu = ({ fullName, emailAddresses }: UserMenuProps) => {
       </div>
       <div className="flex items-center space-x-2 overflow-hidden">
         <div className="flex max-w-[140px] flex-col overflow-hidden text-left">
-          <p className="truncate text-sm leading-none font-medium text-zinc-800">
+          <p className="truncate text-sm leading-none font-medium">
             {fullName}
           </p>
-          <p className="truncate text-xs text-zinc-500">{emailAddresses}</p>
+          <p className="truncate text-xs opacity-50">{emailAddresses}</p>
         </div>
         <ChevronDownIcon
           className={`h-4 w-4 shrink-0 transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}

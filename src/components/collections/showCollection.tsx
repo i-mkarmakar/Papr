@@ -55,7 +55,7 @@ const ShowCollection = ({ collection, reminders }: ShowCollectionProps) => {
         <AccordionContent className="px-5 pb-4">
           {reminders.length === 0 ? (
             <div className="flex flex-col items-center justify-center space-y-3 py-6">
-              <p className="font-onest text-lg text-zinc-600">
+              <p className="opacity-50">
                 Add some reminders to this collection
               </p>
             </div>
