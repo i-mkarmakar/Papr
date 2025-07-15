@@ -1,21 +1,19 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { useState, type ReactNode } from "react";
 import SidebarClient from "@/components/layout/sidebar";
 import SidebarContent from "@/components/layout/sidebarContent";
-import { cn } from "@/lib/utils";
 
 interface SidebarProviderProps {
   children: ReactNode;
 }
 
-const SidebarProvider = ({ children }: SidebarProviderProps) => {
+const SidebarProvider = (props: SidebarProviderProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
-
   return (
     <SidebarClient isOpen={isOpen}>
-      <SidebarContent isOpen={isOpen} setSidebarOpen={setIsOpen} />
-
+      <SidebarContent isOpen={isOpen} />
       <button
         title="Toggle Sidebar"
         className={cn(
@@ -26,7 +24,7 @@ const SidebarProvider = ({ children }: SidebarProviderProps) => {
         )}
         onClick={() => setIsOpen(!isOpen)}
       />
-      {children}
+      {props.children}
     </SidebarClient>
   );
 };
