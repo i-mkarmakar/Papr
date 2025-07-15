@@ -1,13 +1,8 @@
-import type { Metadata } from "next";
-
 import { getCollectionsWithReminders } from "@/server/queries/collections";
-
 import { cn } from "@/lib/utils";
 import { container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { PlusIcon } from "lucide-react";
-
-import LoadingData from "@/components/loadingData";
 import AppOptions from "@/components/layout/appOptions";
 import ShowCollection from "@/components/collections/showCollection";
 import BlankCollection from "@/components/collections/blankCollection";
@@ -30,7 +25,6 @@ export default function AppHomepage() {
         <main className={cn(container, "mt-6")}>
           <Await
             promise={getCollectionsWithReminders()}
-            fallback={<LoadingData text="Preparing..." />}
             errorComponent={<div>Error</div>}
           >
             {(data) => {

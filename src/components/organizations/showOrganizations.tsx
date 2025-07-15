@@ -29,7 +29,6 @@ const ShowOrganizations = ({ userId }: ShowOrganizationsProps) => {
       </SidebarLink>
       <OrganizationOptions
         organization={org}
-        className="group-hover:opacity-100"
       />
     </div>
   ));
