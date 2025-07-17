@@ -1,9 +1,6 @@
 import { getCollectionsWithReminders } from "@/server/queries/collections";
 import { cn } from "@/lib/utils";
 import { container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
-import { PlusIcon } from "lucide-react";
-import AppOptions from "@/components/layout/appOptions";
 import ShowCollection from "@/components/collections/showCollection";
 import BlankCollection from "@/components/collections/blankCollection";
 import CollectionGroup from "@/components/collections/collectionGroup";
@@ -13,15 +10,8 @@ import { Await } from "@/lib/await";
 export default function AppHomepage() {
   return (
     <>
-      <AppOptions>
-        <CreateCollection>
-          <Button className="cursor-pointer">
-            <PlusIcon className="h-4 w-4" />
-            <span className="font-semibold">Create Collection</span>
-          </Button>
-        </CreateCollection>
-      </AppOptions>
-      <div className="flex flex-col border-t-2">
+
+      <div className="flex flex-col">
         <main className={cn(container, "mt-6")}>
           <Await
             promise={getCollectionsWithReminders()}
