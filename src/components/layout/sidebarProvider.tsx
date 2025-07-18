@@ -1,7 +1,8 @@
+// components/layout/sidebarProvider.tsx
+
 "use client";
 
 import { useState, type ReactNode } from "react";
-import Header from "@/components/layout/header";
 import SidebarClient from "@/components/layout/sidebar";
 import SidebarContent from "@/components/layout/sidebarContent";
 import { cn } from "@/lib/utils";
@@ -10,8 +11,9 @@ interface SidebarProviderProps {
   children: ReactNode;
 }
 
-const SidebarProvider = (props: SidebarProviderProps) => {
+const SidebarProvider = ({ children }: SidebarProviderProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
+
   return (
     <SidebarClient isOpen={isOpen}>
       <SidebarContent isOpen={isOpen} />
@@ -25,8 +27,8 @@ const SidebarProvider = (props: SidebarProviderProps) => {
         )}
         onClick={() => setIsOpen(!isOpen)}
       />
-      <Header sidebarOpen={isOpen} setSidebarOpen={setIsOpen} />
-      {props.children}
+      {/* Removed <Header> */}
+      {children}
     </SidebarClient>
   );
 };
