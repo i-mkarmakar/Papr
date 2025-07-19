@@ -12,6 +12,7 @@ import Header from "@/components/layout/header";
 import { Button } from "@/components/ui/button";
 
 export default function AppHomepage() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [data, setData] = useState<any[] | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +33,11 @@ export default function AppHomepage() {
 
   return (
     <>
-      <Header title="Home">
+      <Header
+        title="Home"
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      >
         {!loading && (
           <CreateCollection onCreate={fetchCollections}>
             <Button className="text-sm font-medium">Create Collection</Button>
