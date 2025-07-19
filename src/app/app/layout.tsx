@@ -1,3 +1,5 @@
+// components/layout/webAppLayout.tsx
+
 import type { ReactNode } from "react";
 import SidebarProvider from "@/components/layout/sidebarProvider";
 

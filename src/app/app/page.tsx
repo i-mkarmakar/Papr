@@ -1,67 +1,74 @@
-import type { Metadata } from "next";
+"use client";
 
+import { useState, useEffect } from "react";
 import { getCollectionsWithReminders } from "@/server/queries/collections";
-
 import { cn } from "@/lib/utils";
 import { container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
-import { PlusIcon } from "lucide-react";
-
-import LoadingData from "@/components/loadingData";
-import AppOptions from "@/components/layout/appOptions";
 import ShowCollection from "@/components/collections/showCollection";
 import BlankCollection from "@/components/collections/blankCollection";
 import CollectionGroup from "@/components/collections/collectionGroup";
 import CreateCollection from "@/components/collections/createCollection";
-import { Await } from "@/lib/await";
+import Header from "@/components/layout/header";
+import { Button } from "@/components/ui/button";
 
 export default function AppHomepage() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [data, setData] = useState<any[] | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  async function fetchCollections() {
+    try {
+      const result = await getCollectionsWithReminders();
+      setData(result);
+    } catch (error) {
+      console.error("Failed to load collections", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchCollections();
+  }, []);
+
   return (
     <>
-      <AppOptions>
-        <CreateCollection>
-          <Button className="cursor-pointer">
-            <PlusIcon className="h-4 w-4" />
-            <span className="font-semibold">Create Collection</span>
-          </Button>
-        </CreateCollection>
-      </AppOptions>
-      <div className="flex flex-col border-t-2">
-        <main className={cn(container, "mt-6")}>
-          <Await
-            promise={getCollectionsWithReminders()}
-            fallback={<LoadingData text="Preparing..." />}
-            errorComponent={<div>Error</div>}
-          >
-            {(data) => {
-              if (data) {
-                if (data.length === 0) {
-                  return (
-                    <BlankCollection>
-                      <CreateCollection>
-                        <p className="font-onest text-lg">
-                          Start organizing your things by creating a collection
-                        </p>
-                      </CreateCollection>
-                    </BlankCollection>
-                  );
-                }
-                return (
-                  <CollectionGroup>
-                    {data.map((item, idx) => (
-                      <ShowCollection
-                        key={item.collection.id ?? idx}
-                        collection={item.collection}
-                        reminders={item.reminders}
-                      />
-                    ))}
-                  </CollectionGroup>
-                );
-              }
-            }}
-          </Await>
-        </main>
-      </div>
+      <Header
+        title="Home"
+        sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
+      >
+        {!loading && (
+          <CreateCollection onCreate={fetchCollections}>
+            <Button className="text-sm font-medium">Create Collection</Button>
+          </CreateCollection>
+        )}
+      </Header>
+
+      <main className={cn(container, "mt-6")}>
+        {loading ? (
+          <p className="text-center opacity-50">Loading...</p>
+        ) : data && data.length === 0 ? (
+          <BlankCollection>
+            <CreateCollection onCreate={fetchCollections}>
+              <p className="mt-6 text-center opacity-50">
+                Start organizing your things by creating a collection
+              </p>
+            </CreateCollection>
+          </BlankCollection>
+        ) : (
+          <CollectionGroup>
+            {data?.map((item, idx) => (
+              <ShowCollection
+                key={item.collection.id ?? idx}
+                collection={item.collection}
+                reminders={item.reminders}
+                fetchCollections={fetchCollections}
+              />
+            ))}
+          </CollectionGroup>
+        )}
+      </main>
     </>
   );
 }

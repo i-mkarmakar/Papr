@@ -6,7 +6,6 @@ import { useUser } from "@clerk/nextjs";
 import { FolderPlusIcon, HouseIcon, Building } from "lucide-react";
 import UserMenu from "@/components/auth/userMenu";
 import { SidebarLink, SidebarLinkStyle } from "@/components/layout/sidebarLink";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Separator } from "@/components/ui/separator";
 import ShowOrganizations from "@/components/organizations/showOrganizations";
 import CreateOrganization from "@/components/organizations/createOrganization";
@@ -54,40 +53,27 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
               </SidebarLink>
 
               <Separator className="border" />
-              {!isLoaded ? (
-                <Skeleton className="h-6 w-full" />
-              ) : (
-                isSignedIn &&
-                user && (
-                  <CreateOrganization>
-                    <button className={cn(SidebarLinkStyle)}>
-                      <div className="flex items-center gap-2 px-4 py-2">
-                        <FolderPlusIcon className="h-4 w-4" />
-                        <span className="font-semibold">
-                          Create Organization
-                        </span>
-                      </div>
-                    </button>
-                  </CreateOrganization>
-                )
-              )}
-              {!isLoaded ? (
-                <>
-                  <Skeleton className="h-6 w-full" />
-                  <Skeleton className="h-6 w-full" />
-                </>
-              ) : (
-                isSignedIn &&
-                user && (
-                  <>
-                    <Separator className="border" />
-                    <div className="flex items-center gap-2 px-4 py-4">
-                      <Building className="h-4 w-4" />
-                      <span className="font-semibold">Organizations</span>
+
+              {isLoaded && isSignedIn && user && (
+                <CreateOrganization>
+                  <button className={cn(SidebarLinkStyle)}>
+                    <div className="flex items-center gap-2 px-4 py-2">
+                      <FolderPlusIcon className="h-4 w-4" />
+                      <span className="font-semibold">Create Organization</span>
                     </div>
-                    <ShowOrganizations userId={user.id} />
-                  </>
-                )
+                  </button>
+                </CreateOrganization>
+              )}
+
+              {isLoaded && isSignedIn && user && (
+                <>
+                  <Separator className="border" />
+                  <div className="flex items-center gap-2 px-4 py-4">
+                    <Building className="h-4 w-4" />
+                    <span className="font-semibold">Organizations</span>
+                  </div>
+                  <ShowOrganizations userId={user.id} />
+                </>
               )}
             </nav>
           </div>

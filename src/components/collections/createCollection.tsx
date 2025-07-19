@@ -33,11 +33,13 @@ import { toast } from "sonner";
 interface CreateCollectionProps {
   children: ReactNode;
   organizationId?: string;
+  onCreate?: () => void;
 }
 
 const CreateCollection = ({
   children,
   organizationId,
+  onCreate,
 }: CreateCollectionProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -53,15 +55,18 @@ const CreateCollection = ({
         ...data,
         organizationId: organizationId,
       });
+
+      toast.success("Collection created successfully");
       form.reset();
       setIsOpen(false);
-      setLoading(false);
-      toast.success("Collection created successfully");
+
+      onCreate?.();
     } catch (error) {
-      console.error("⚠️ createCollection - Error creating collection:", error);
+      console.error("Error creating collection:", error);
       toast.error("Failed to create collection.", {
         description: "Please try again later.",
       });
+    } finally {
       setLoading(false);
     }
   };
@@ -72,7 +77,7 @@ const CreateCollection = ({
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={(value) => handleOnClose(value)}>
+    <Dialog open={isOpen} onOpenChange={handleOnClose}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>

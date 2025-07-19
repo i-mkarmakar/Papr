@@ -14,7 +14,7 @@ interface SidebarLinkProps {
 const SidebarLinkStyle = cn(
   "cursor-pointer flex w-full items-center space-x-2",
   "py-2",
-  "hover:bg-foreground/50 hover:text-white",
+  "hover:bg-secondary-background",
   "transition-colors duration-200 ease-in-out",
 );
 
@@ -27,7 +27,7 @@ const SidebarLink = (props: SidebarLinkProps) => {
       className={cn(
         SidebarLinkStyle,
         pathname === props.href &&
-          "hover:bg-foreground/50 rounded-none hover:text-white",
+          "hover:bg-secondary-background",
       )}
     >
       {props.children}

@@ -10,7 +10,6 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { redirect } from "next/navigation";
 import { deleteCollection } from "@/server/queries/collections";
 import { TrashIcon } from "lucide-react";
 
@@ -18,6 +17,7 @@ interface DeleteCollectionProps {
   title: string;
   collectionId: string;
   children: ReactNode;
+  onDelete?: () => void;
 }
 
 const DeleteCollection = (props: DeleteCollectionProps) => {
@@ -31,7 +31,7 @@ const DeleteCollection = (props: DeleteCollectionProps) => {
         queryKey: ["organizations"],
       });
       setIsOpen(false);
-      redirect("/app");
+      props.onDelete?.();
     } catch (error) {
       console.error("Error updating organization:", error);
     }

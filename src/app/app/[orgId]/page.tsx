@@ -40,6 +40,11 @@ export default async function Page({ params }: PageProps) {
     return redirect("/app");
   }
 
+  async function fetchCollections(): Promise<void> {
+    "use server";
+    await getOrganizationInfo(orgId);
+  }
+
   return (
     <>
       <div className="flex flex-col border-b-2">
@@ -58,8 +63,8 @@ export default async function Page({ params }: PageProps) {
         <CollectionGroup>
           {orgData.collections.length === 0 ? (
             <BlankCollection>
-              <CreateCollection>
-                <p className="font-onest text-lg">
+              <CreateCollection organizationId={orgData.organization.id}>
+                <p className="opacity-50 mt-50">
                   Start organizing your things by creating a collection
                 </p>
               </CreateCollection>
@@ -70,6 +75,7 @@ export default async function Page({ params }: PageProps) {
                 key={coll.id}
                 collection={coll}
                 reminders={coll.reminders}
+                fetchCollections={fetchCollections}
               />
             ))
           )}
