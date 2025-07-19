@@ -1,5 +1,3 @@
-// components/layout/sidebarProvider.tsx
-
 "use client";
 
 import { useState, type ReactNode } from "react";
@@ -27,7 +25,6 @@ const SidebarProvider = ({ children }: SidebarProviderProps) => {
         )}
         onClick={() => setIsOpen(!isOpen)}
       />
-      {/* Removed <Header> */}
       {children}
     </SidebarClient>
   );
