@@ -57,7 +57,7 @@ export default async function Page({ params }: PageProps) {
           {orgData.collections.length === 0 ? (
             <BlankCollection>
               <CreateCollection organizationId={orgData.organization.id}>
-                <p className="mt-6 text-center opacity-50">
+                <p className="mt-6 text-center text-sm opacity-50">
                   Start organizing your things by creating a collection
                 </p>
               </CreateCollection>

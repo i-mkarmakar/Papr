@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Await } from "@/lib/await";
 import { getCollectionsWithReminders } from "@/server/queries/collections";
 import { cn } from "@/lib/utils";
@@ -33,7 +32,7 @@ export default function AppHomepage() {
                 return (
                   <BlankCollection>
                     <CreateCollection>
-                      <p className="mt-6 text-center opacity-50">
+                      <p className="mt-6 text-center text-sm opacity-50">
                         Start organizing your things by creating a collection
                       </p>
                     </CreateCollection>

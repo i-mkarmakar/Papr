@@ -35,7 +35,10 @@ const HomePage = () => {
           rel="noopener noreferrer"
         >
           <div className="flex items-center gap-2">
-            <Badge variant="neutral" className="group flex items-center gap-1">
+            <Badge
+              variant="neutral"
+              className="group relative flex items-center gap-1 overflow-hidden"
+            >
               <Image
                 src="/star.png"
                 alt="Star us on GitHub"
@@ -51,7 +54,7 @@ const HomePage = () => {
                 className="hidden group-hover:block"
               />
               Star us on GitHub
-              <ArrowUpRight className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Badge>
           </div>
         </Link>
@@ -62,31 +65,14 @@ const HomePage = () => {
           Easily build organizations, organize tasks into groups, and schedule
           reminders in a sleek, clutter-free workspace.
         </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
           <Link href="/home">
-            <Button size="lg" className="cursor-pointer text-base">
-              Get Started <ChevronRight className="h-4 w-4" />
-            </Button>
-          </Link>
-          <Link
-            href="https://github.com/i-mkarmakar/Papr"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
             <Button
-              variant="noShadow"
               size="lg"
-              className="cursor-pointer text-base"
+              className="group relative cursor-pointer overflow-hidden text-base"
             >
-              <Image
-                src="/github_logo.png"
-                alt="Github Logo"
-                width={22}
-                height={22}
-                className="inline-block"
-              />
-              GitHub Repo
-              <ChevronRight className="h-4 w-4" />
+              Get Started
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
           </Link>
         </div>
