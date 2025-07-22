@@ -102,7 +102,7 @@ const CreateReminder = ({
           <DialogTitle className="flex items-center space-x-1.5">
             {collectionColor && (
               <div
-                className={cn(collectionColor, "h-4 w-4 rounded-full", "mr-2")}
+                className={cn(collectionColor, "h-4 w-4 rounded-full")}
               />
             )}
             <span>New Reminder</span>

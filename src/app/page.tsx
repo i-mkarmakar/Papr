@@ -2,7 +2,7 @@ import Image from "next/image";
 import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowUpRight, ChevronRight, Star, Heart } from "lucide-react";
+import { ArrowUpRight, ChevronRight, Heart } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -51,13 +51,14 @@ const HomePage = () => {
                 className="hidden group-hover:block"
               />
               Star us on GitHub
+              <ArrowUpRight className="h-4 w-4" />
             </Badge>
           </div>
         </Link>
         <h1 className="mt-4 text-3xl leading-tight font-semibold tracking-tight sm:text-4xl md:text-5xl">
           Remember Everything, Focus on What Matters.
         </h1>
-        <p className="text-muted-foreground mt-4 text-base sm:text-lg">
+        <p className="mt-4 text-base sm:text-lg">
           Easily build organizations, organize tasks into groups, and schedule
           reminders in a sleek, clutter-free workspace.
         </p>
@@ -84,7 +85,8 @@ const HomePage = () => {
                 height={22}
                 className="inline-block"
               />
-              GitHub Repo <ArrowUpRight className="h-4 w-4" />
+              GitHub Repo
+              <ChevronRight className="h-4 w-4" />
             </Button>
           </Link>
         </div>

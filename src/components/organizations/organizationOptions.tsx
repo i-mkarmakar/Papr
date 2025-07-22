@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { PencilIcon, PencilLineIcon, TrashIcon } from "lucide-react";
+import { PencilIcon, PencilLineIcon, Trash2 } from "lucide-react";
 import { SidebarLinkStyle } from "@/components/layout/sidebarLink";
 import EditOrganization from "@/components/organizations/editOrganization";
 import DeleteOrganization from "@/components/organizations/deleteOrganization";
@@ -40,22 +40,23 @@ const OrganizationOptions = (props: OrganizationOptionsProps) => {
           title={props.organization.name}
           organizationId={props.organization.id}
         >
-            <DropdownMenuItem
+          <DropdownMenuItem
             onSelect={(e) => e.preventDefault()}
             className="cursor-pointer"
-            >
+          >
             <PencilLineIcon className="h-4 w-4" />
             <span>Rename</span>
-            </DropdownMenuItem>
+          </DropdownMenuItem>
         </EditOrganization>
         <DeleteOrganization
           title={props.organization.name}
           organizationId={props.organization.id}
         >
-          <DropdownMenuItem onSelect={(e) => e.preventDefault()}
-                        className="cursor-pointer"
-            >
-            <TrashIcon className="h-4 w-4 text-red-500" />
+          <DropdownMenuItem
+            onSelect={(e) => e.preventDefault()}
+            className="cursor-pointer"
+          >
+            <Trash2 className="h-4 w-4 text-red-500" />
             <span>Delete</span>
           </DropdownMenuItem>
         </DeleteOrganization>

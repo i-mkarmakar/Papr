@@ -126,9 +126,7 @@ const CreateOrganization = (props: CreateOrganizationProps) => {
                 ) : (
                   <PlusIcon className="h-4 w-4" />
                 )}
-                <span className="ml-2">
-                  {isLoading ? "Creating..." : "Create"}
-                </span>
+                <span>{isLoading ? "Creating..." : "Create"}</span>
               </Button>
             </DialogFooter>
           </form>

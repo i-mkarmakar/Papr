@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { buttonVariants } from "@/components/ui/button";
-import { EllipsisIcon, XIcon, PencilLineIcon, TrashIcon } from "lucide-react";
+import { EllipsisIcon, XIcon, PencilLineIcon, Trash2 } from "lucide-react";
 import EditCollection from "./editCollection";
 import DeleteCollection from "./deleteCollection";
 import type { GetCollections } from "@/server/db/types";
@@ -55,7 +55,7 @@ const CollectionOptions = ({
             onSelect={(e) => e.preventDefault()}
             className="cursor-pointer"
           >
-            <PencilLineIcon className="mr-2 h-4 w-4" />
+            <PencilLineIcon className="h-4 w-4" />
             <span>Edit</span>
           </DropdownMenuItem>
         </EditCollection>
@@ -69,7 +69,7 @@ const CollectionOptions = ({
             onSelect={(e) => e.preventDefault()}
             className="cursor-pointer"
           >
-            <TrashIcon className="h-4 w-4 text-red-500" />
+            <Trash2 className="h-4 w-4 text-red-500" />
             <span>Delete</span>
           </DropdownMenuItem>
         </DeleteCollection>

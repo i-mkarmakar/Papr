@@ -12,7 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { deleteOrganization } from "@/server/queries/organizations";
 import { redirect } from "next/navigation";
-import { LoaderIcon, TrashIcon } from "lucide-react";
+import { LoaderIcon, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
 interface DeleteOrganizationProps {
@@ -35,9 +35,7 @@ const DeleteOrganization = (props: DeleteOrganizationProps) => {
       });
       setIsOpen(false);
       setIsLoading(false);
-      toast.success(
-        "Deleted organization successfully",
-      );
+      toast.success("Deleted organization successfully");
       redirect("/app");
     } catch (error) {
       console.error(
@@ -66,9 +64,9 @@ const DeleteOrganization = (props: DeleteOrganizationProps) => {
             className="cursor-pointer"
           >
             {isLoading ? (
-              <LoaderIcon className="animate-spin h-4 w-4" />
+              <LoaderIcon className="h-4 w-4 animate-spin" />
             ) : (
-              <TrashIcon className="h-4 w-4 text-red-500" />
+              <Trash2 className="h-4 w-4 text-red-500" />
             )}
             <span>{isLoading ? "Deleting..." : "Delete"}</span>
           </Button>

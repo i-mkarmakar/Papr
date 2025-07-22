@@ -9,7 +9,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { LoaderIcon, TrashIcon } from "lucide-react";
+import { LoaderIcon, Trash2 } from "lucide-react";
 import { deleteReminder } from "@/server/queries/reminders";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -46,7 +46,7 @@ const DeleteReminder = (props: DeleteReminderProps) => {
           props.className,
         )}
       >
-        <TrashIcon className="h-4 w-4 text-red-500" />
+        <Trash2 className="h-4 w-4 text-red-500" />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -64,7 +64,7 @@ const DeleteReminder = (props: DeleteReminderProps) => {
             {isLoading ? (
               <LoaderIcon className="h-4 w-4 animate-spin" />
             ) : (
-              <TrashIcon className="h-4 w-4 text-red-500" />
+              <Trash2 className="h-4 w-4 text-red-500" />
             )}
             <span>{isLoading ? "Deleting..." : "Confirm"}</span>
           </Button>
