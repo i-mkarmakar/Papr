@@ -36,7 +36,7 @@ const DeleteOrganization = (props: DeleteOrganizationProps) => {
       setIsOpen(false);
       setIsLoading(false);
       toast.success("Deleted organization successfully");
-      redirect("/app");
+      redirect("/home");
     } catch (error) {
       console.error(
         "⚠️ deleteOrganization - Error deleting organization:",

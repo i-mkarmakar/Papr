@@ -63,7 +63,7 @@ const HomePage = () => {
           reminders in a sleek, clutter-free workspace.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <Link href="/app">
+          <Link href="/home">
             <Button size="lg" className="cursor-pointer text-base">
               Get Started <ChevronRight className="h-4 w-4" />
             </Button>

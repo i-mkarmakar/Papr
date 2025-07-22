@@ -37,7 +37,7 @@ export default async function Page({ params }: PageProps) {
   const orgData = await getOrganizationInfo(orgId);
 
   if (!orgData?.organization) {
-    return redirect("/app");
+    return redirect("/home");
   }
 
   return (

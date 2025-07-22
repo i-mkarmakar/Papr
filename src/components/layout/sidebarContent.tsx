@@ -9,6 +9,7 @@ import { SidebarLink, SidebarLinkStyle } from "@/components/layout/sidebarLink";
 import { Separator } from "@/components/ui/separator";
 import ShowOrganizations from "@/components/organizations/showOrganizations";
 import CreateOrganization from "@/components/organizations/createOrganization";
+import Image from "next/image";
 
 interface SidebarContentProps {
   isOpen: boolean;
@@ -37,15 +38,15 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
         <div className="flex flex-1">
           <div className="flex w-full flex-col">
             <Link
-              href="/app"
+              href="/home"
               className="flex items-center gap-2 p-4 text-xl font-medium"
             >
-              <img src="/logo.png" alt="logo" className="h-8 w-26" />
+              <Image src="/logo.png" alt="App Logo" width={100} height={32} />
             </Link>
             <Separator className="border" />
 
             <nav className="flex flex-col">
-              <SidebarLink href="/app">
+              <SidebarLink href="/home">
                 <div className="flex items-center gap-2 px-4 py-2">
                   <HouseIcon className="h-4 w-4" />
                   <span className="font-semibold">Home</span>
@@ -79,15 +80,15 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
           </div>
         </div>
 
-          <Separator className="border" />
-          <div className="flex flex-col">
-            <div className={cn("overflow-hidden p-4")}>
-              <UserMenu
-                fullName={user?.fullName ?? user?.username ?? ""}
-                emailAddresses={user?.emailAddresses?.[0]?.emailAddress}
-              />
-            </div>
+        <Separator className="border" />
+        <div className="flex flex-col">
+          <div className={cn("overflow-hidden p-4")}>
+            <UserMenu
+              fullName={user?.fullName ?? user?.username ?? ""}
+              emailAddresses={user?.emailAddresses?.[0]?.emailAddress}
+            />
           </div>
+        </div>
       </nav>
     </aside>
   );

@@ -24,8 +24,7 @@ const Header = (props: HeaderProps) => {
       </Button>
       {!props.sidebarOpen && (
         <Link
-          href="/app"
-          title="Home"
+          href="/home"
           className={buttonVariants({ size: "icon" })}
         >
           <HouseIcon className="h-4 w-4" strokeWidth={1.5} />

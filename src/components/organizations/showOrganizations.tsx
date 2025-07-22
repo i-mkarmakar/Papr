@@ -24,7 +24,7 @@ const ShowOrganizations = ({ userId }: ShowOrganizationsProps) => {
         "animate-in fade-in slide-in-from-bottom-2 duration-200",
       )}
     >
-      <SidebarLink href={`/app/${org.slug}`} title={org.name}>
+      <SidebarLink href={`/home/${org.slug}`} title={org.name}>
         <p className="max-w-40 truncate">{org.name}</p>
       </SidebarLink>
       <OrganizationOptions organization={org} />
