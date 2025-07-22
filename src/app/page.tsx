@@ -34,9 +34,25 @@ const HomePage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Badge variant="neutral">
-            <Star /> Star us on GitHub
-          </Badge>
+          <div className="flex items-center gap-2">
+            <Badge variant="neutral" className="group flex items-center gap-1">
+              <Image
+                src="/star.png"
+                alt="Star us on GitHub"
+                width={14}
+                height={14}
+                className="block group-hover:hidden"
+              />
+              <Image
+                src="/yellow-star.png"
+                alt="Star us on GitHub"
+                width={14}
+                height={14}
+                className="hidden group-hover:block"
+              />
+              Star us on GitHub
+            </Badge>
+          </div>
         </Link>
         <h1 className="mt-4 text-3xl leading-tight font-semibold tracking-tight sm:text-4xl md:text-5xl">
           Remember Everything, Focus on What Matters.

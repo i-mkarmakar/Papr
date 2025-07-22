@@ -1,39 +1,36 @@
-"use client";
-
-import type { ReactNode } from "react";
-import { cn } from "@/lib/utils";
-import { container } from "@/components/ui/container";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { HouseIcon, SidebarCloseIcon, SidebarOpenIcon } from "lucide-react";
+import Link from "next/link";
 
 interface HeaderProps {
-  title?: string;
-  children?: ReactNode;
   sidebarOpen: boolean;
   setSidebarOpen: (open: boolean) => void;
 }
 
-const Header = ({
-  title = "Home",
-  children,
-}: HeaderProps) => {
+const Header = (props: HeaderProps) => {
   return (
-    <header className="bg-background sticky top-0 z-50 w-full border-b-2 shadow-sm">
-      <div
-        className={cn(
-          "z-40 w-full py-3",
-          "flex w-full flex-col justify-between space-y-3 md:flex-row md:items-center md:space-y-0",
-          "animate-in fill-mode-backwards fade-in slide-in-from-bottom-2 delay-0 duration-500",
-        )}
+    <header className="sticky top-0 z-50 flex w-full items-center space-x-2 px-4 py-3">
+      <Button
+        size="icon"
+        title="Toggle Sidebar"
+        onClick={() => props.setSidebarOpen(!props.sidebarOpen)}
+        className="cursor-pointer"
       >
-        <div
-          className={cn(container, "flex w-full items-center justify-between")}
+        {props.sidebarOpen ? (
+          <SidebarCloseIcon size={20} strokeWidth={1.5} />
+        ) : (
+          <SidebarOpenIcon size={20} strokeWidth={1.5} />
+        )}
+      </Button>
+      {!props.sidebarOpen && (
+        <Link
+          href="/app"
+          title="Home"
+          className={buttonVariants({ size: "icon" })}
         >
-          <div className="flex items-center gap-4">
-            <h2 className="text-xl font-semibold">{title}</h2>
-          </div>
-
-          <div className="flex items-center gap-3">{children}</div>
-        </div>
-      </div>
+          <HouseIcon size={20} strokeWidth={1.5} />
+        </Link>
+      )}
     </header>
   );
 };
