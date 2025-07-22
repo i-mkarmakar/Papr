@@ -21,15 +21,13 @@ const ShowOrganizations = ({ userId }: ShowOrganizationsProps) => {
       key={org.slug}
       className={cn(
         "group flex items-center gap-2 px-4",
-        "animate-in fade-in slide-in-from-bottom-2 duration-200"
+        "animate-in fade-in slide-in-from-bottom-2 duration-200",
       )}
     >
       <SidebarLink href={`/app/${org.slug}`} title={org.name}>
         <p className="max-w-40 truncate">{org.name}</p>
       </SidebarLink>
-      <OrganizationOptions
-        organization={org}
-      />
+      <OrganizationOptions organization={org} />
     </div>
   ));
 };

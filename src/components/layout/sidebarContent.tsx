@@ -40,7 +40,7 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
               href="/app"
               className="flex items-center gap-2 p-4 text-xl font-medium"
             >
-              <img src="/logo.png" alt="Papr Logo" className="h-8 w-26" />
+              <img src="/logo.png" alt="logo" className="h-8 w-26" />
             </Link>
             <Separator className="border" />
 
@@ -79,7 +79,6 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
           </div>
         </div>
 
-        <section>
           <Separator className="border" />
           <div className="flex flex-col">
             <div className={cn("overflow-hidden p-4")}>
@@ -89,7 +88,6 @@ const SidebarContent = ({ isOpen }: SidebarContentProps) => {
               />
             </div>
           </div>
-        </section>
       </nav>
     </aside>
   );

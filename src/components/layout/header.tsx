@@ -28,7 +28,7 @@ const Header = (props: HeaderProps) => {
           title="Home"
           className={buttonVariants({ size: "icon" })}
         >
-          <HouseIcon size={20} strokeWidth={1.5} />
+          <HouseIcon className="h-4 w-4" strokeWidth={1.5} />
         </Link>
       )}
     </header>

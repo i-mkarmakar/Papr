@@ -20,7 +20,7 @@ export default function AppHomepage() {
     <div className="flex flex-col pb-5">
       <AppOptions>
         <CreateCollection>
-          <Button variant="default">
+          <Button variant="default" className="cursor-pointer">
             <PlusIcon size={16} />
             <span>Create Collection</span>
           </Button>

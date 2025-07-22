@@ -17,7 +17,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           `${fontSans.variable} ${fontOnest.variable}`,
@@ -27,7 +27,7 @@ export default function RootLayout({
         <ClerkCustomProvider>
           <QueryProvider>{children}</QueryProvider>
         </ClerkCustomProvider>
-        <Toaster />
+        <Toaster richColors position="bottom-right" closeButton />
       </body>
     </html>
   );
