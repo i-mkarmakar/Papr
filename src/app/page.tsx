@@ -47,7 +47,7 @@ const HomePage = () => {
                 className="block group-hover:hidden"
               />
               <Image
-                src="/yellow-star.png"
+                src="/yellow_star.png"
                 alt="Star us on GitHub"
                 width={14}
                 height={14}
