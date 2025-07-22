@@ -18,7 +18,9 @@ interface ShowCollectionProps {
 }
 
 const ShowCollection = ({ collection, reminders }: ShowCollectionProps) => {
-  const fetchCollections = async (): Promise<void> => {};
+  const fetchCollections = async (): Promise<void> => {
+    // TODO: implement fetch logic here if needed
+  };
 
   return (
     <Accordion
@@ -30,9 +32,7 @@ const ShowCollection = ({ collection, reminders }: ShowCollectionProps) => {
       <AccordionItem value={collection.id}>
         <div className="flex w-full items-center justify-between px-4 py-3 transition">
           <AccordionTrigger
-            className={cn(
-              "flex flex-1 items-center justify-between p-0 text-left",
-            )}
+            className={cn("flex flex-1 items-center justify-between p-0 text-left")}
           >
             <div className="flex cursor-pointer items-center space-x-3">
               {collection.colors && (
@@ -40,7 +40,9 @@ const ShowCollection = ({ collection, reminders }: ShowCollectionProps) => {
                   className={cn(collection.colors, "h-4 w-4 rounded-full")}
                 />
               )}
-              <span className="text-base font-semibold">{collection.name}</span>
+              <span className="text-base font-semibold">
+                {collection.name}
+              </span>
             </div>
           </AccordionTrigger>
 

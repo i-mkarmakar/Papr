@@ -3,12 +3,13 @@
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import {
+  useCallback,
   useEffect,
   useId,
   useRef,
   useState,
+  type ComponentPropsWithoutRef,
 } from "react";
-import type { ComponentPropsWithoutRef } from "react";
 
 export interface AnimatedGridPatternProps
   extends ComponentPropsWithoutRef<"svg"> {
@@ -45,27 +46,29 @@ export function AnimatedGridPattern({
   const containerRef = useRef<SVGSVGElement | null>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
-  const getPos = (): [number, number] => {
+  const getPos = useCallback((): [number, number] => {
     return [
       Math.floor((Math.random() * dimensions.width) / width),
       Math.floor((Math.random() * dimensions.height) / height),
     ];
-  };
+  }, [dimensions, width, height]);
 
-  const generateSquares = (count: number): Square[] => {
+  const generateSquares = useCallback((count: number): Square[] => {
     return Array.from({ length: count }, (_, i) => ({
       id: i,
       pos: getPos(),
     }));
-  };
+  }, [getPos]);
 
-  const [squares, setSquares] = useState<Square[]>(() => generateSquares(numSquares));
+  const [squares, setSquares] = useState<Square[]>(() =>
+    generateSquares(numSquares)
+  );
 
   const updateSquarePosition = (id: number) => {
     setSquares((currentSquares) =>
       currentSquares.map((sq) =>
-        sq.id === id ? { ...sq, pos: getPos() } : sq,
-      ),
+        sq.id === id ? { ...sq, pos: getPos() } : sq
+      )
     );
   };
 
@@ -73,7 +76,7 @@ export function AnimatedGridPattern({
     if (dimensions.width && dimensions.height) {
       setSquares(generateSquares(numSquares));
     }
-  }, [dimensions, numSquares]);
+  }, [dimensions, numSquares, generateSquares]);
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver((entries) => {
@@ -99,7 +102,7 @@ export function AnimatedGridPattern({
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
-        className,
+        className
       )}
       {...props}
     >
@@ -121,7 +124,7 @@ export function AnimatedGridPattern({
       </defs>
       <rect width="100%" height="100%" fill={`url(#${id})`} />
       <svg x={x} y={y} className="overflow-visible">
-        {squares.map(({ pos, id }, index) => {
+        {squares.map(({ pos, id }) => {
           const [px = 0, py = 0] = pos;
           return (
             <motion.rect
@@ -131,7 +134,7 @@ export function AnimatedGridPattern({
               transition={{
                 duration,
                 repeat: 1,
-                delay: index * 0.1,
+                delay: id * 0.1,
                 repeatType: "reverse",
                 repeatDelay,
               }}

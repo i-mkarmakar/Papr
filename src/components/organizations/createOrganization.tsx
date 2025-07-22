@@ -49,42 +49,51 @@ const CreateOrganization = (props: CreateOrganizationProps) => {
     try {
       setIsLoading(true);
       await insertOrganization(data);
-      await queryClient.invalidateQueries({
-        queryKey: ["organizations"],
-      });
+      await queryClient.invalidateQueries({ queryKey: ["organizations"] });
       form.reset();
       setIsOpen(false);
-      setIsLoading(false);
       toast.success("Organization created successfully");
-    } catch (error: any) {
-      console.error(
-        "⚠️ createOrganization - Error creating organization:",
-        error,
-      );
+    } catch (error: unknown) {
+      console.error("⚠️ createOrganization - Error:", error);
 
-      if (
-        error?.code === "23505" ||
-        error?.message?.includes("duplicate key") ||
-        error?.response?.data?.message?.includes("already exists")
-      ) {
-        toast.error("Duplicate Organization", {
-          description: "An organization with this name already exists.",
-        });
-      } else {
-        toast.error("Failed to create organization", {
-          description: "Please try again later.",
-        });
+      let isDuplicate = false;
+
+      if (typeof error === "object" && error !== null) {
+        const err = error as {
+          code?: string;
+          message?: string;
+          response?: {
+            data?: {
+              message?: string;
+            };
+          };
+        };
+
+        if (
+          err.code === "23505" ||
+          err.message?.includes("duplicate key") ||
+          err.response?.data?.message?.includes("already exists")
+        ) {
+          isDuplicate = true;
+        }
       }
 
+      toast.error(
+        isDuplicate ? "Duplicate Organization" : "Failed to create organization",
+        {
+          description: isDuplicate
+            ? "An organization with this name already exists."
+            : "Please try again later.",
+        }
+      );
+    } finally {
       setIsLoading(false);
     }
   };
 
   const handleOpenChange = (open: boolean) => {
     setIsOpen(open);
-    if (!open) {
-      form.reset();
-    }
+    if (!open) form.reset();
   };
 
   return (
