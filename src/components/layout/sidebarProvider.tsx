@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import Header from "@/components/layout/header";
 import SidebarClient from "@/components/layout/sidebar";
@@ -10,8 +10,20 @@ interface SidebarProviderProps {
   children: ReactNode;
 }
 
-const SidebarProvider = (props: SidebarProviderProps) => {
+const SidebarProvider = ({ children }: SidebarProviderProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
+  const [hasMounted, setHasMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    const isSmallScreen = window.innerWidth < 768;
+    setIsOpen(!isSmallScreen);
+    setHasMounted(true);
+  }, []);
+
+  if (!hasMounted) {
+    return null;
+  }
+
   return (
     <SidebarClient isOpen={isOpen}>
       <SidebarContent isOpen={isOpen} />
@@ -25,7 +37,7 @@ const SidebarProvider = (props: SidebarProviderProps) => {
         onClick={() => setIsOpen(!isOpen)}
       />
       <Header sidebarOpen={isOpen} setSidebarOpen={setIsOpen} />
-      {props.children}
+      {children}
     </SidebarClient>
   );
 };
