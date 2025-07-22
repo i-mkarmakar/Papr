@@ -23,7 +23,7 @@
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 1. Clone or [**fork**](https://github.com/i-mkarmakar/papr) the repo:
 
@@ -64,28 +64,28 @@ pnpm dev
 
 ---
 
-## Stack
+## 🛠️ Stack
 
 This project is built with the [**T3 Stack**](https://create.t3.gg) and uses the following technologies:
 
-- [Next.js](https://nextjs.org/) - The React framework for production.
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
-- [shadcn/ui](https://ui.shadcn.com/) - A set of components built with Tailwind CSS and Radix UI.
-- [Clerk](https://clerk.dev/) - Authentication and user management.
-- [Drizzle](https://orm.drizzle.team/) - TypeScript ORM for PostgreSQL.
-- [PostgreSQL](https://www.postgresql.org/) - The world's most advanced open source relational database.
-- [Tanstack Query](https://tanstack.com/query/v4) - A powerful data-fetching library for React.
-- [Zod](https://zod.dev/) - A TypeScript-first schema declaration and validation library.
+* [Next.js](https://nextjs.org/) – The React framework for production.
+* [Tailwind CSS](https://tailwindcss.com/) – A utility-first CSS framework for rapid UI development.
+* [shadcn/ui](https://ui.shadcn.com/) – A set of components built with Tailwind CSS and Radix UI.
+* [Clerk](https://clerk.dev/) – Authentication and user management.
+* [Drizzle](https://orm.drizzle.team/) – TypeScript ORM for PostgreSQL.
+* [PostgreSQL](https://www.postgresql.org/) – The world's most advanced open source relational database.
+* [Tanstack Query](https://tanstack.com/query/v4) – A powerful data-fetching library for React.
+* [Zod](https://zod.dev/) – A TypeScript-first schema declaration and validation library.
 
 ---
 
-## Contributing
+## 🤝 Contributing
 
 Found a bug or have a feature idea?
 You're welcome to contribute:
 
-* Fork the repo
-* Create a new branch
-* Open a pull request
+* 🍴 Fork the repo
+* 🌱 Create a new branch
+* 🔁 Open a pull request
 
-Every bit of help is appreciated!
+Every bit of help is appreciated! 🙌
