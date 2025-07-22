@@ -10,10 +10,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { buttonVariants } from "@/components/ui/button";
 import { EllipsisIcon, XIcon, PencilLineIcon, Trash2 } from "lucide-react";
-import EditCollection from "./editCollection";
-import DeleteCollection from "./deleteCollection";
 import type { GetCollections } from "@/server/db/types";
 import { cn } from "@/lib/utils";
+import EditCollection from "@/components/collections/editCollection";
+import DeleteCollection from "@/components/collections/deleteCollection";
 
 interface CollectionOptionsProps {
   collection: GetCollections;

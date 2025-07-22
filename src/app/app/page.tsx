@@ -11,16 +11,12 @@ import BlankCollection from "@/components/collections/blankCollection";
 import CollectionGroup from "@/components/collections/collectionGroup";
 import CreateCollection from "@/components/collections/createCollection";
 
-export const metadata: Metadata = {
-  title: "Home",
-};
-
 export default function AppHomepage() {
   return (
     <div className="flex flex-col pb-5">
       <AppOptions>
         <CreateCollection>
-          <Button variant="default" className="cursor-pointer">
+          <Button className="cursor-pointer">
             <PlusIcon size={16} />
             <span>Create Collection</span>
           </Button>

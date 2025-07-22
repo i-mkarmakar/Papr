@@ -45,7 +45,7 @@ export default async function Page({ params }: PageProps) {
       <AppOptions title={orgData.organization.name}>
         {orgData.organization.id && (
           <CreateCollection organizationId={orgData.organization.id}>
-            <Button variant="default" className="cursor-pointer">
+            <Button className="cursor-pointer">
               <PlusIcon size={16} />
               <span>Create Collection</span>
             </Button>

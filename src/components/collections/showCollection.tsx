@@ -7,11 +7,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
-import CollectionOptions from "./collectionOptions";
-import CreateReminder from "../reminders/createReminder";
-import ReminderItem from "../reminders/reminderItem";
+import CollectionOptions from "@/components/collections/collectionOptions";
+import CreateReminder from "@/components/reminders/createReminder";
+import ReminderItem from "@/components/reminders/reminderItem";
 
 interface ShowCollectionProps {
   collection: GetCollections;
@@ -19,12 +18,7 @@ interface ShowCollectionProps {
 }
 
 const ShowCollection = ({ collection, reminders }: ShowCollectionProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-
-  // ✅ Fix: async function as expected by CollectionOptions
-  const fetchCollections = async (): Promise<void> => {
-    // implement actual logic here later if needed
-  };
+  const fetchCollections = async (): Promise<void> => {};
 
   return (
     <Accordion

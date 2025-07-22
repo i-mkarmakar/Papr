@@ -24,7 +24,7 @@ import { Button } from "@/components/ui/button";
 import { collectionZodSchema } from "@/server/schemas/collection";
 import { editCollection } from "@/server/queries/collections";
 import { ColorSelector } from "@/components/ui/colorSelector";
-import { colorOptions } from "./colors";
+import { colorOptions } from "@/components/collections/colors";
 import { LoaderIcon, PencilLineIcon } from "lucide-react";
 import { toast } from "sonner";
 

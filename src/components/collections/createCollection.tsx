@@ -27,7 +27,7 @@ import { createCollection } from "@/server/queries/collections";
 import { collectionZodSchema } from "@/server/schemas/collection";
 import { Input } from "@/components/ui/input";
 import { ColorSelector } from "@/components/ui/colorSelector";
-import { colorOptions } from "./colors";
+import { colorOptions } from "@/components/collections/colors";
 import { toast } from "sonner";
 
 interface CreateCollectionProps {

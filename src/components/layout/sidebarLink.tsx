@@ -13,7 +13,6 @@ interface SidebarLinkProps {
 const SidebarLinkStyle = cn(
   "cursor-pointer flex w-full items-center space-x-2",
   "px-4 py-2 text-sm",
-  "hover:bg-zinc-200",
   "transition-colors duration-200 ease-in-out",
 );
 
