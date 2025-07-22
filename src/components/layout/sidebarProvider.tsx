@@ -30,12 +30,14 @@ const SidebarProvider = ({ children }: SidebarProviderProps) => {
       <button
         title="Toggle Sidebar"
         className={cn(
-          "absolute left-0 z-50 h-screen w-1",
+          "absolute left-0 z-50 h-screen w-1 bg-gray-200 hover:bg-gray-300",
           "transition-colors duration-200 ease-in-out",
           "cursor-w-resize",
+          "focus:outline-none focus-visible:outline-none active:outline-none",
         )}
         onClick={() => setIsOpen(!isOpen)}
       />
+
       <Header sidebarOpen={isOpen} setSidebarOpen={setIsOpen} />
       {children}
     </SidebarClient>
