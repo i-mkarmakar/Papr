@@ -66,11 +66,6 @@ const EditCollection = (props: EditCollectionProps) => {
     }
   };
 
-  const handleOnClose = (value: boolean) => {
-    setIsOpen(value);
-    form.reset();
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{props.children}</DialogTrigger>
