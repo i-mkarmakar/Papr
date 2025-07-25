@@ -5,8 +5,6 @@ import { cn } from "@/lib/utils";
 import { fontOnest, fontSans } from "@/fonts";
 import QueryProvider from "@/providers/queryProvider";
 import ClerkCustomProvider from "@/providers/clerkProvider";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
@@ -27,8 +25,6 @@ export default function RootLayout({
         )}
       >
         <ClerkCustomProvider>
-          <Analytics />
-          <SpeedInsights />
           <QueryProvider>{children}</QueryProvider>
         </ClerkCustomProvider>
         <Toaster richColors position="bottom-right" closeButton />
