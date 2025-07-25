@@ -30,7 +30,7 @@ const HomePage = () => {
 
       <main className="relative z-10 mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-4 py-10 text-center">
         <Link
-          href="https://github.com/i-mkarmakar/Papr"
+          href="https://github.com/i-mkarmakar/papr"
           target="_blank"
           rel="noopener noreferrer"
         >
